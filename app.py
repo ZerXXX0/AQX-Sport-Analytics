@@ -5,7 +5,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 from core import ROOT, FEATURES, metrics, zones, clutch
-from charts import court
+from charts import render_shot_explorer
 
 st.set_page_config(page_title='ClutchIQ',page_icon='🏀',layout='wide')
 st.title('ClutchIQ 🏀')
@@ -40,20 +40,7 @@ with tabs[0]:
     st.caption('Daily aggregate; changes can reflect different players and opponents.')
     st.dataframe(df.groupby('PLAYER_NAME').agg(attempts=('points','size'),makes=('SHOT_MADE_FLAG','sum'),points=('points','sum')).sort_values('attempts',ascending=False),width='stretch')
 with tabs[1]:
-    a,b=st.columns([1.1,1])
-    with a:
-        st.plotly_chart(court(df),width='stretch')
-        st.caption('Coordinates in feet, basket at (0,0). Beyond-half-court attempts remain in metrics but can lie outside the chart.')
-    z=zones(df); bench=zones(league)[['SHOT_ZONE_BASIC','FG%']].rename(columns={'FG%':'League FG%'})
-    with b:
-        comp=z.merge(bench,on='SHOT_ZONE_BASIC')
-        st.plotly_chart(px.bar(comp,x='SHOT_ZONE_BASIC',y=['FG%','League FG%'],barmode='group',template='plotly_dark'),width='stretch')
-        st.plotly_chart(px.bar(z,x='SHOT_ZONE_BASIC',y='attempts',template='plotly_dark'),width='stretch')
-    st.dataframe(z,width='stretch')
-    reliable=z[z.attempts>=30].sort_values('Points / attempt',ascending=False)
-    if len(reliable):
-        best=reliable.iloc[0]
-        st.info(f"Highest observed points/attempt among zones with ≥30 attempts: {best.SHOT_ZONE_BASIC} · {best['Points / attempt']:.2f} · n={best.attempts}. Historical association, not a causal recommendation.")
+    render_shot_explorer(df, league=league)
 with tabs[2]:
     st.subheader('Close games, event by event')
     minutes=st.slider('Maximum minutes remaining',1,5,5)

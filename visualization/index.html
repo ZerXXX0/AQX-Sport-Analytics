@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Interactive NBA Half-Court &amp; Shot Chart</title>
+  <script defer src="math.js"></script>
+  <script defer src="chart.js"></script>
+</head>
+<body>
+<main id="explorer" aria-busy="true">
+  <header class="heading">
+    <div><p class="eyebrow">SHOT EXPLORER</p><h2>Every shot has a story.</h2>
+      <p class="subtitle">Explore location, efficiency, and the sample behind the numbers.</p></div>
+    <span class="badge">NBA · 2023/24</span>
+  </header>
+  <p id="loading" role="status">Loading actual shot records…</p>
+  <p id="error" class="notice error" role="alert" hidden></p>
+  <section id="content" hidden>
+    <div class="toolbar">
+      <fieldset class="modes"><legend class="sr-only">Visualization mode</legend>
+        <label><input type="radio" name="mode" value="scatter" checked><span>Scatter shots</span></label>
+        <label><input type="radio" name="mode" value="heatmap"><span>Hexbin heatmap</span></label>
+        <label><input type="radio" name="mode" value="expected"><span>Expected points</span></label>
+      </fieldset>
+      <label class="field">Heatmap metric<select id="metric" disabled>
+        <option value="attempts">Attempts</option><option value="fg">FG%</option>
+      </select></label>
+      <label class="field">Source zone<select id="zone"><option value="all">All zones</option></select></label>
+      <label class="field threshold">Minimum sample <output id="threshold-value" for="threshold">30</output>
+        <input id="threshold" type="range" min="1" max="250" value="30" step="1">
+      </label>
+    </div>
+    <p id="prediction-status" class="notice" role="status" hidden></p>
+    <div class="workspace">
+      <div class="court-column">
+        <div class="court-top"><span id="scope">All zones</span><span class="muted">50 × 47 ft · basket at (0, 0)</span></div>
+        <div class="court-wrap" id="court-wrap">
+          <canvas id="shots" aria-hidden="true"></canvas>
+          <svg id="court" xmlns="http://www.w3.org/2000/svg" viewBox="-27 -43.75 54 51" preserveAspectRatio="xMidYMid meet"
+               role="group" aria-labelledby="court-title court-description">
+            <title id="court-title">Interactive NBA half-court shot chart</title>
+            <desc id="court-description">Basket at the bottom. Positive Y points toward midcourt. Use Tab to focus the court or a hexbin. Arrow keys browse shots or cells, Enter selects, Escape clears selection.</desc>
+            <defs>
+              <clipPath id="bounds"><rect x="-25" y="-5.25" width="50" height="47"/></clipPath>
+              <pattern id="no-data" width="1.1" height="1.1" patternUnits="userSpaceOnUse">
+                <rect width="1.1" height="1.1" fill="#142035"/><path d="M0 0L1.1 1.1" stroke="#53617a" stroke-width=".07"/>
+              </pattern>
+              <pattern id="low-sample" width=".85" height=".85" patternUnits="userSpaceOnUse">
+                <path d="M0 0L.85 .85" stroke="#dce6f5" stroke-opacity=".45" stroke-width=".08"/>
+              </pattern>
+            </defs>
+            <g transform="scale(1,-1)">
+              <g id="hexes" clip-path="url(#bounds)"></g>
+              <rect id="shot-surface" x="-25" y="-5.25" width="50" height="47" fill="transparent"
+                    tabindex="0" role="button" aria-describedby="tooltip" aria-label="Shot chart. Arrow keys browse shots; Enter selects; Escape clears."/>
+              <g id="court-lines" class="court-lines" aria-hidden="true"></g>
+              <g id="highlight" class="highlight" aria-hidden="true"></g>
+            </g>
+          </svg>
+          <p id="court-empty" class="court-empty" hidden>No mapped shots match this selection.</p>
+        </div>
+        <div id="legend" class="legend" aria-label="Chart legend"></div>
+        <p id="coverage" class="caption"></p>
+        <p class="caption">Hover or tap to inspect. Focus the court and use arrow keys to browse; Enter selects, Escape clears.</p>
+      </div>
+      <aside class="inspector" aria-label="Selection and shooting statistics">
+        <div class="panel-heading"><h3 id="selection-title">All zones</h3><button id="clear" type="button" disabled>Clear selection</button></div>
+        <p id="selection-subtitle" class="muted"></p>
+        <div class="stats" id="stats"></div>
+        <p id="sample-status" class="sample-status"></p>
+        <div id="shot-detail" class="shot-detail" hidden></div>
+        <div class="note"><strong>Read the sample, too.</strong><p>Hatched cells have a small sample. FG% intervals use 95% Wilson confidence intervals. A high rate alone is not a recommendation.</p></div>
+        <details><summary>Coordinates &amp; prediction coverage</summary><p id="data-notes"></p>
+          <p>Expected points = predicted make probability × shot value (2 or 3). Area values are means per attempt with valid predictions. FG% confidence intervals do not apply to model estimates.</p>
+        </details>
+      </aside>
+    </div>
+    <details class="zone-table"><summary>Source-zone statistics · includes off-court attempts</summary>
+      <p class="caption">Selecting a source zone filters all modes. A cell selection further narrows the inspector. League benchmarks use the same sidebar quarter and shot type, across all players and teams.</p>
+      <div id="zone-list" class="zone-list"></div>
+    </details>
+  </section>
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  <p id="live" class="sr-only" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>
