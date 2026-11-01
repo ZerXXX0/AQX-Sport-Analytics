@@ -1,1 +1,6 @@
-dataset/
+data/
+artifacts/*.joblib
+__pycache__/
+.pytest_cache/
+.venv/
+.env
