@@ -5,6 +5,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 from core import ROOT, FEATURES, metrics, zones, clutch
+from charts import render_shot_explorer
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -714,88 +715,7 @@ with tabs[0]:
 # TAB 1 — SHOT EXPLORER
 # ═══════════════════════════════════════════════════════════════════════════
 with tabs[1]:
-    from charts import court
-
-    # Context strip
-    st.html(f"""
-    <div class="iq-context-strip">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="iq-context-strip-label">Spatial Shot Telemetry</span>
-        </div>
-        <span style="color:#41eec2;font-size:11px;font-family:'JetBrains Mono',monospace;">
-          Sample: 2023-24 Regular Season · <b style="color:#dce2f7;">{len(df):,}</b> Field Goal Events
-        </span>
-      </div>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <span class="iq-live-dot"></span>
-        <span style="font-size:11px;color:#a98a80;font-family:'JetBrains Mono',monospace;">
-          Coordinate-resolved shot tracking
-        </span>
-      </div>
-    </div>
-    """)
-
-    st.html("""
-    <div style="margin-bottom:16px;">
-      <h2 class="iq-section-title" style="font-size:28px;">Spatial Shot Distribution</h2>
-      <p class="iq-section-sub">Court coordinates in feet · basket at origin (0,0)</p>
-    </div>
-    """)
-
-    left_col, right_col = st.columns([1.2, 1])
-
-    with left_col:
-        st.html('<div class="iq-card"><p class="iq-card-header">Half-Court Shot Chart</p>')
-        fig_court = court(df)
-        apply_theme(fig_court, height=520)
-        st.plotly_chart(fig_court, use_container_width=True)
-        st.caption('Made shots = teal circles · Missed shots = slate × markers. '
-                   'Beyond-half-court attempts may lie outside the visible area.')
-        st.html('</div>')
-
-    with right_col:
-        z     = zones(df)
-        bench = zones(league)[['SHOT_ZONE_BASIC', 'FG%']].rename(columns={'FG%': 'League FG%'})
-        comp  = z.merge(bench, on='SHOT_ZONE_BASIC')
-
-        st.html('<div class="iq-card"><p class="iq-card-header">FG% by Zone vs League</p>')
-        fig_zone = go.Figure()
-        fig_zone.add_bar(x=comp.SHOT_ZONE_BASIC, y=comp['FG%'],
-                         name='Selected', marker_color='#ff6b35')
-        fig_zone.add_bar(x=comp.SHOT_ZONE_BASIC, y=comp['League FG%'],
-                         name='League', marker_color='#41eec2')
-        fig_zone.update_layout(barmode='group', xaxis_tickangle=-30,
-                                legend=dict(orientation='h', y=1.12))
-        apply_theme(fig_zone, height=240)
-        st.plotly_chart(fig_zone, use_container_width=True)
-        st.html('</div>')
-
-        st.html('<div class="iq-card"><p class="iq-card-header">Attempts by Zone</p>')
-        fig_att = px.bar(z.sort_values('attempts', ascending=False),
-                         x='SHOT_ZONE_BASIC', y='attempts',
-                         color_discrete_sequence=['#ff6b35'])
-        fig_att.update_traces(marker_line_width=0)
-        apply_theme(fig_att, height=200)
-        st.plotly_chart(fig_att, use_container_width=True)
-        st.html('</div>')
-
-    st.html('<div class="iq-card"><p class="iq-card-header">Zone Breakdown Table</p>')
-    st.dataframe(z, use_container_width=True)
-    reliable = z[z.attempts >= 30].sort_values('Points / attempt', ascending=False)
-    if len(reliable):
-        best = reliable.iloc[0]
-        st.html(
-            f'<div class="iq-insight">🏆 <b>Best Zone:</b> {best.SHOT_ZONE_BASIC} · '
-            f'<b>{float(best["Points / attempt"]):.2f}</b> pts/attempt · '
-            f'n={int(best.attempts)} attempts. '
-            f'<span style="color:#a98a80;font-size:11px;">Historical association only.</span></div>'
-        )
-    st.html('</div>')
-
-# ═══════════════════════════════════════════════════════════════════════════
-# TAB 2 — CLUTCH ANALYSIS
-# ═══════════════════════════════════════════════════════════════════════════
+    render_shot_explorer(df, league=league)
 with tabs[2]:
     st.html("""
     <div style="margin-bottom:20px;">
