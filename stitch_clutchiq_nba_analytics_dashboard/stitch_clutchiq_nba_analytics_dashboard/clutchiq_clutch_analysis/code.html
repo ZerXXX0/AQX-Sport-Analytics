@@ -1,0 +1,458 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#41eec2","surface-container":"#191f2f","primary":"#ffb59d","surface-container-low":"#141b2b","on-background":"#dce2f7","outline-variant":"#594139","on-secondary-container":"#005441","surface-container-highest":"#2e3545","on-error":"#690005","on-tertiary-fixed-variant":"#930013","secondary-fixed-dim":"#28dfb5","on-tertiary":"#68000a","secondary-fixed":"#55fcd0","on-error-container":"#ffdad6","inverse-on-surface":"#293040","surface-variant":"#2e3545","on-primary-container":"#5f1900","inverse-surface":"#dce2f7","primary-fixed":"#ffdbd0","on-secondary-fixed-variant":"#00513f","outline":"#a98a80","on-primary-fixed":"#390c00","on-primary":"#5d1900","surface-bright":"#323949","on-surface":"#dce2f7","tertiary-container":"#ff6862","background":"#0c1322","primary-fixed-dim":"#ffb59d","surface-dim":"#0c1322","tertiary-fixed-dim":"#ffb3ad","surface-tint":"#ffb59d","on-secondary":"#00382b","on-primary-fixed-variant":"#832600","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","error":"#ffb4ab","on-tertiary-container":"#6b000b","on-surface-variant":"#e1bfb5","on-secondary-fixed":"#002118","primary-container":"#ff6b35","secondary-container":"#00d1a7","surface-container-high":"#232a3a","surface":"#0c1322","inverse-primary":"#ab3500","on-tertiary-fixed":"#410004","error-container":"#93000a","surface-container-lowest":"#070e1d"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","gutter":"1rem","space-xl":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"metric-display":["JetBrains Mono"],"body-md":["Inter"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-xl":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"metric-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="ClutchIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wxrw917tFqHSwxHCPdzymoaX16lA9lorP3sDmjOtsyP5Z5KFrkQavMtevYic4_St8XHsvXagtKCxlcr_70yNaZ6DpjTdLIhuC9DpssUesb7bZ6vJ_GjrtZXNt127TQVsBWtI2GZdwWDU1JST8uMeGxiDxKQjv2s6xPzfGJ7UnD4ZeDD2cy5Cy_T2MhOjL9V5zcDuYoMkpcaAFRlDe34_yw2DifmSYAolP00G7tWd6k"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Clutch<span class="text-primary-container">IQ</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Smarter shot selection through NBA analytics · 2023/24 regular season</p></div><div class="px-space-lg pt-space-lg pb-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Filters</span><span class="material-symbols-outlined text-label-sm text-on-surface-variant">tune</span></div><div class="px-space-lg flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Team</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Teams</option><option value="bos">Boston Celtics</option><option value="den">Denver Nuggets</option><option value="lal">LA Lakers</option><option value="gsw">Golden State Warriors</option><option value="mil">Milwaukee Bucks</option><option value="okc">Oklahoma City Thunder</option><option value="dal">Dallas Mavericks</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Player</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Players</option><option value="luka">Luka Dončić</option><option value="sga">Shai Gilgeous-Alexander</option><option value="jokic">Nikola Jokić</option><option value="tatum">Jayson Tatum</option><option value="curry">Stephen Curry</option><option value="giannis">Giannis Antetokounmpo</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Quarter</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Quarters</option><option value="q1">Q1</option><option value="q2">Q2</option><option value="q3">Q3</option><option value="q4">Q4</option><option value="ot">OT</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Shot Type</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Shot Types</option><option value="2pt">2PT Field Goal</option><option value="3pt">3PT Field Goal</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div></div></div><div class="p-space-lg bg-surface-container-low flex flex-col gap-space-sm"><p class="font-body-sm text-body-sm text-on-surface-variant italic leading-normal">League benchmark follows quarter and shot type across all teams.</p><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm uppercase">Telemetry v2.4</span><span class="font-label-sm text-label-sm font-semibold text-secondary">READY</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[52px] bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin"><div class="flex items-center gap-space-lg flex-nowrap"><div class="flex items-center gap-2 max-w-[130px] shrink-0"><svg class="w-[22px] h-[22px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24"></path><path d="M19.07 4.93l-4.24 4.24m-5.66 5.66l-4.24 4.24"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg><span class="font-headline-md text-[22px] font-bold text-white tracking-tight leading-none">ClutchIQ</span></div><nav class="flex flex-row flex-nowrap whitespace-nowrap overflow-visible items-center"><a class="text-[13px] px-4 py-3 text-[#6B7280] hover:text-white transition-colors" data-path="overview" href="#">Overview</a><a class="text-[13px] px-4 py-3 text-[#6B7280] hover:text-white transition-colors" data-path="shot-explorer" href="#">Shot Explorer</a><a aria-current="page" class="text-[13px] px-4 py-3 text-white font-bold transition-colors border-b-[3px] border-[#FF6B35]" data-path="clutch-analysis" href="#">Clutch Analysis</a><a class="text-[13px] px-4 py-3 text-[#6B7280] hover:text-white transition-colors" data-path="player-comparison" href="#">Comparison</a><a class="text-[13px] px-4 py-3 text-[#6B7280] hover:text-white transition-colors" data-path="shot-prediction" href="#">Prediction</a><a class="text-[13px] px-4 py-3 text-[#6B7280] hover:text-white transition-colors" data-path="methodology" href="#">Methodology</a></nav></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2023/24 Reg. Season</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded text-on-surface-variant"><span class="material-symbols-outlined text-label-md text-primary-container">bolt</span><span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface">Streamlit Live</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen px-margin py-margin"><div class="flex flex-col w-full gap-space-xl">
+<!-- View Header & Telemetry Pill -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-primary-container text-surface-container-lowest font-label-sm text-label-sm font-bold uppercase tracking-wider">Module 03</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">High Leverage Index</span>
+</div>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">Close Games, Event by Event</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Evaluating late-clock and high-leverage shot execution under clutch constraints across 2023/24 regular season telemetries.</p>
+</div>
+<!-- Active State Pill -->
+<div class="flex items-center gap-space-sm self-start md:self-auto bg-surface-container-high px-space-md py-space-sm rounded">
+<span class="material-symbols-outlined text-secondary text-label-lg" style="font-variation-settings: 'FILL' 1;">timer</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Leverage State</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="leverage-status-pill">Q4/OT ≤ 5:00 • ±5 PTS</span>
+</div>
+</div>
+</div>
+<!-- Interactive Parameter Controller Panel -->
+<div class="relative overflow-hidden bg-surface-container-low rounded p-space-xl shadow-lg">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-md relative z-10">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide">Clutch Boundary Parameters</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          REAL-TIME TELEMETRY ENGINE
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl pt-space-xs">
+<!-- Slider 1: Minutes Remaining -->
+<div class="flex flex-col gap-space-sm bg-surface-container p-space-lg rounded">
+<div class="flex justify-between items-center">
+<label class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-space-xs" for="time-slider">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">schedule</span>
+              Maximum minutes remaining
+            </label>
+<div class="flex items-baseline gap-1 bg-surface-container-highest px-space-sm py-0.5 rounded">
+<span class="font-metric-display text-headline-sm text-primary-container" id="time-val">5.0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MIN</span>
+</div>
+</div>
+<div class="relative flex items-center py-2">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container focus:outline-none" id="time-slider" max="5" min="1" step="0.5" type="range" value="5">
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">1.0 min (Critical)</span>
+<span class="">2.5 min</span>
+<span class="">5.0 min (Standard NBA)</span>
+</div>
+</div>
+<!-- Slider 2: Margin -->
+<div class="flex flex-col gap-space-sm bg-surface-container p-space-lg rounded">
+<div class="flex justify-between items-center">
+<label class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-space-xs" for="margin-slider">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">scoreboard</span>
+              Maximum score margin
+            </label>
+<div class="flex items-baseline gap-1 bg-surface-container-highest px-space-sm py-0.5 rounded">
+<span class="font-metric-display text-headline-sm text-primary-container" id="margin-val">5</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PTS</span>
+</div>
+</div>
+<div class="relative flex items-center py-2">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container focus:outline-none" id="margin-slider" max="15" min="1" step="1" type="range" value="5">
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">±1 pt (One possession)</span>
+<span class="">±5 pts (Two possessions)</span>
+<span class="">±15 pts (Blowout line)</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm italic">
+<span class="material-symbols-outlined text-sm not-italic text-on-surface-variant">info</span>
+        Quarter ≥ 4, time ≤ 5:00, absolute margin ≤ 5. Unknown score context excluded (3 attempts).
+      </div>
+</div>
+</div>
+<!-- Dual Split Comparison Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Card 1: CLUTCH -->
+<div class="relative flex flex-col justify-between bg-surface-container rounded p-space-xl overflow-hidden shadow-xl">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="absolute right-0 top-0 w-44 h-44 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-lg relative z-10">
+<div class="flex justify-between items-center">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary-container/20 text-primary font-label-sm text-label-sm font-bold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+            Clutch Situation
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Filtered Scope</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Attempts</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight" id="clutch-att">7,232</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3.3% of shots</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Field Goal %</span>
+<span class="font-metric-display text-metric-display text-primary-container tracking-tight" id="clutch-fg">43.82%</span>
+<span class="font-label-sm text-label-sm text-error flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span> -3.74%
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Effective FG%</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight" id="clutch-efg">50.05%</span>
+<span class="font-label-sm text-label-sm text-error flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span> -4.76%
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Pts / Attempt</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight" id="clutch-ppa">1.001</span>
+<span class="font-label-sm text-label-sm text-error flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span> -0.095
+            </span>
+</div>
+</div>
+<div class="p-space-md rounded bg-surface-container-high flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container">compress</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+            Offensive efficiency undergoes significant compression under extreme leverage. Turnover risk and isolation frequency surge as passing lanes narrow.
+          </p>
+</div>
+</div>
+</div>
+<!-- Card 2: NON-CLUTCH -->
+<div class="relative flex flex-col justify-between bg-surface-container rounded p-space-xl overflow-hidden shadow-xl">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-container-highest"></div>
+<div class="absolute right-0 top-0 w-44 h-44 bg-secondary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-space-lg relative z-10">
+<div class="flex justify-between items-center">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[14px]">layers</span>
+            Standard / Non-Clutch
+          </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase">Baseline Baseline</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Attempts</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">211,469</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">96.7% of shots</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Field Goal %</span>
+<span class="font-metric-display text-metric-display text-secondary tracking-tight">47.56%</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_up</span> Baseline
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Effective FG%</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">54.81%</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_up</span> Baseline
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Pts / Attempt</span>
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">1.096</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]">arrow_drop_up</span> Baseline
+            </span>
+</div>
+</div>
+<div class="p-space-md rounded bg-surface-container-high flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">trending_down</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+<span class="font-semibold text-primary">Clutch FG% drops by -3.74%</span> league-wide as defensive schemes solidify, pace plummets, and contact tolerance expands.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparative Visualizations: Bento Split Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Visual Bar Chart Card -->
+<div class="lg:col-span-5 flex flex-col justify-between bg-surface-container rounded p-space-xl shadow-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Execution Efficiency Gap</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">eFG &amp; FG% Split</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct macro comparison against the total league baseline average.</p>
+</div>
+<!-- High Contrast Comparison Bars -->
+<div class="flex flex-col gap-space-lg my-space-lg">
+<!-- Clutch Visual Bar -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+              Clutch Execution
+            </span>
+<span class="font-label-lg text-label-lg font-bold text-primary-container" id="chart-clutch-pct">43.82%</span>
+</div>
+<div class="h-9 w-full bg-surface-container-lowest rounded overflow-hidden relative p-1 flex items-center">
+<div class="h-full rounded bg-primary-container transition-all duration-500 flex items-center justify-end pr-3" id="bar-clutch" style="width: 43.82%;">
+<span class="font-label-sm text-label-sm font-bold text-surface-container-lowest">43.8%</span>
+</div>
+<!-- Dashed Baseline Pin -->
+<div class="absolute top-0 bottom-0 left-[47.43%] border-r border-dashed border-on-surface/40 z-20 pointer-events-none"></div>
+</div>
+</div>
+<!-- Non-Clutch Visual Bar -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+              Non-Clutch Baseline
+            </span>
+<span class="font-label-lg text-label-lg font-bold text-secondary">47.56%</span>
+</div>
+<div class="h-9 w-full bg-surface-container-lowest rounded overflow-hidden relative p-1 flex items-center">
+<div class="h-full rounded bg-secondary transition-all duration-500 flex items-center justify-end pr-3" style="width: 47.56%;">
+<span class="font-label-sm text-label-sm font-bold text-on-secondary">47.6%</span>
+</div>
+<!-- Dashed Baseline Pin -->
+<div class="absolute top-0 bottom-0 left-[47.43%] border-r border-dashed border-on-surface/40 z-20 pointer-events-none"></div>
+</div>
+</div>
+<!-- Macro Delta Meter -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant uppercase">Benchmark Line: League Avg</span>
+<span class="font-bold text-on-surface">47.43% FG</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary-container text-sm">warning</span>
+<span class="">Shooting volume skews toward contested mid-range pullups during final 180 seconds.</span>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Sample Size: 218,701 Total FGA</span>
+<span class="text-primary-container font-semibold">Margin Bias Factor: 1.18x</span>
+</div>
+</div>
+<!-- Editorial Broadcast Context & Arena Visualizer -->
+<div class="lg:col-span-7 flex flex-col bg-surface-container rounded p-space-xl justify-between shadow-lg relative overflow-hidden">
+<div class="flex justify-between items-start z-10">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Broadcast Analytics Engine</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Defensive Wall Impact Analysis</h3>
+</div>
+<span class="px-space-sm py-1 bg-surface-container-highest rounded text-on-surface font-label-sm text-label-sm">Sample N=7,232</span>
+</div>
+<!-- High Density Shot Pressure Metric Cluster -->
+<div class="grid grid-cols-3 gap-space-sm my-space-md z-10">
+<div class="bg-surface-container-high/80 p-space-md rounded flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Contested FGA%</span>
+<span class="font-metric-display text-headline-md text-on-surface">68.4%</span>
+<span class="text-error font-label-sm text-label-sm font-semibold">↑ +14.2% vs Reg</span>
+</div>
+<div class="bg-surface-container-high/80 p-space-md rounded flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Avg Dribbles</span>
+<span class="font-metric-display text-headline-md text-on-surface">4.82</span>
+<span class="text-primary font-label-sm text-label-sm font-semibold">↑ +1.1 Iso Skew</span>
+</div>
+<div class="bg-surface-container-high/80 p-space-md rounded flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Corner Share</span>
+<span class="font-metric-display text-headline-md text-on-surface">10.3%</span>
+<span class="text-error font-label-sm text-label-sm font-semibold">↓ -4.8% Squeeze</span>
+</div>
+</div>
+<!-- Arena Tactical Media Component -->
+<div class="relative h-44 rounded overflow-hidden z-10">
+<img class="object-cover w-full h-full brightness-75" data-alt="High energy dramatic wide-angle shot of an NBA arena in dark moody broadcast lighting with blurred basketball rim and net under dramatic orange and teal arena spotlight, capturing tension and focus during clutch seconds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ77jE0dgZgaHvSfr4CnwG7FT64CRsWKgxAm4NwGOp1R1vUl3rjgk9VhlMGyWKRAgplYCZTAw3WK4z0rluAB7moMpC5TN8tWvyaIV0Y9_AiPwbvVlraZLzx-6ZcD9RUQkSK0Y3NUsf9tQSbP8qlUmCUIdFtfh7EDUSti96jZN8UQsjmZSrg_7wi9Ln3ziqJj-Bz3MCu4sp_vTN6EbpvRq045_BKBve9ihL8eUD2iI">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/40 to-transparent flex items-end p-space-md">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">LETHAL PRESSURE WINDOW: FINAL 120s</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest/90 text-primary-container font-mono">Q4 ≤ 2:00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Deep Zone Telemetry Breakdown Table -->
+<div class="flex flex-col bg-surface-container rounded overflow-hidden shadow-xl">
+<div class="p-space-lg bg-surface-container-high flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Clutch Shot Zones &amp; Efficiency Degradation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Percentile drift tracked from 211,469 non-clutch events to high-leverage outcomes</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="text-on-surface-variant">Maximum Drop (&gt;6%)</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm ml-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="text-on-surface-variant">Resilient Zone (&lt;3%)</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface-variant font-label-sm text-label-sm uppercase">
+<th class="py-space-md px-space-lg">Shot Zone</th>
+<th class="py-space-md px-space-md text-right">Clutch Att</th>
+<th class="py-space-md px-space-md text-right">Clutch FG%</th>
+<th class="py-space-md px-space-md text-right">Regular FG%</th>
+<th class="py-space-md px-space-md text-right">Delta</th>
+<th class="py-space-md px-space-lg text-right">Clutch Pts/Att</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest/20 font-body-md text-body-md text-on-surface">
+<!-- Zone 1 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-space-md px-space-lg font-semibold flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-label-md text-on-surface-variant">radio_button_unchecked</span>
+              Above the Break 3
+            </td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md">2,114</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-on-surface">31.3%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md text-on-surface-variant">36.0%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-semibold text-error">
+              -4.7%
+            </td>
+<td class="py-space-md px-space-lg text-right font-label-md text-label-md">0.939</td>
+</tr>
+<!-- Zone 2 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-space-md px-space-lg font-semibold flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-label-md text-on-surface-variant">sports_basketball</span>
+              Restricted Area
+            </td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md">2,450</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-on-surface">61.2%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md text-on-surface-variant">66.5%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-semibold text-error">
+              -5.3%
+            </td>
+<td class="py-space-md px-space-lg text-right font-label-md text-label-md">1.224</td>
+</tr>
+<!-- Zone 3 (Resilient: Highlight in Green) -->
+<tr class="bg-secondary/5 hover:bg-secondary/10 transition-colors">
+<td class="py-space-md px-space-lg font-semibold flex items-center gap-space-sm text-secondary">
+<span class="material-symbols-outlined text-label-md text-secondary">shield</span>
+              In The Paint (Non-RA)
+              <span class="px-space-xs py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm uppercase font-bold ml-1">Resilient</span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md">1,379</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-secondary">41.8%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md text-on-surface-variant">44.2%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-secondary">
+              -2.4%
+            </td>
+<td class="py-space-md px-space-lg text-right font-label-md text-label-md font-semibold text-secondary">0.836</td>
+</tr>
+<!-- Zone 4 (Severe Drop: Highlight in Red) -->
+<tr class="bg-error/5 hover:bg-error/10 transition-colors">
+<td class="py-space-md px-space-lg font-semibold flex items-center gap-space-sm text-error">
+<span class="material-symbols-outlined text-label-md text-error">priority_high</span>
+              Left Corner 3
+              <span class="px-space-xs py-0.5 rounded bg-error/20 text-error font-label-sm text-label-sm uppercase font-bold ml-1">Steepest Drop</span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md">384</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-error">31.5%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md text-on-surface-variant">38.7%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-error">
+              -7.2%
+            </td>
+<td class="py-space-md px-space-lg text-right font-label-md text-label-md">0.945</td>
+</tr>
+<!-- Zone 5 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-space-md px-space-lg font-semibold flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-label-md text-on-surface-variant">crop_square</span>
+              Right Corner 3
+            </td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md">365</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-on-surface">33.2%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md text-on-surface-variant">39.2%</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-semibold text-error">
+              -6.0%
+            </td>
+<td class="py-space-md px-space-lg text-right font-label-md text-label-md">0.996</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Analytical Footnote -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Statistical anomaly: Corner threes suffer highest relative accuracy plunge (-7.2% / -6.0%) due to defensive closeout priority.</span>
+<span class="font-mono text-secondary">CONFIDENCE 99.4% • P &lt; 0.001</span>
+</div>
+</div>
+</div>
+<script>
+  (function initClutchSliders() {
+    const timeSlider = document.getElementById('time-slider');
+    const marginSlider = document.getElementById('margin-slider');
+    const timeVal = document.getElementById('time-val');
+    const marginVal = document.getElementById('margin-val');
+    const leverageStatus = document.getElementById('leverage-status-pill');
+    
+    const clutchAtt = document.getElementById('clutch-att');
+    const clutchFg = document.getElementById('clutch-fg');
+    const clutchEfg = document.getElementById('clutch-efg');
+    const clutchPpa = document.getElementById('clutch-ppa');
+    const chartClutchPct = document.getElementById('chart-clutch-pct');
+    const barClutch = document.getElementById('bar-clutch');
+
+    function updateSimulation() {
+      const minutes = parseFloat(timeSlider.value);
+      const margin = parseInt(marginSlider.value, 10);
+
+      timeVal.textContent = minutes.toFixed(1);
+      marginVal.textContent = margin;
+      leverageStatus.innerHTML = `Q4/OT &le; ${minutes.toFixed(1)}:00 &bull; &plusmn;${margin} PTS`;
+
+      // Telemetry approximation curves based on leverage parameters
+      // Tighter time and margin = slightly lower FG% and fewer attempts
+      const ratio = (minutes / 5.0) * (margin / 5.0);
+      const simulatedAttempts = Math.round(7232 * Math.pow(ratio, 0.72));
+      const simulatedFg = (43.82 - (5 - minutes) * 0.45 - (5 - margin) * 0.2).toFixed(2);
+      const simulatedEfg = (parseFloat(simulatedFg) + 6.23).toFixed(2);
+      const simulatedPpa = (parseFloat(simulatedFg) * 0.0228).toFixed(3);
+
+      clutchAtt.textContent = simulatedAttempts.toLocaleString();
+      clutchFg.textContent = `${simulatedFg}%`;
+      clutchEfg.textContent = `${simulatedEfg}%`;
+      clutchPpa.textContent = simulatedPpa;
+      chartClutchPct.textContent = `${simulatedFg}%`;
+
+      // Clamp bar width within chart
+      const clampedPct = Math.min(Math.max(parseFloat(simulatedFg), 30), 60);
+      barClutch.style.width = `${clampedPct}%`;
+      const innerLabel = barClutch.querySelector('span');
+      if (innerLabel) {
+        innerLabel.textContent = `${simulatedFg}%`;
+      }
+    }
+
+    if (timeSlider && marginSlider) {
+      timeSlider.addEventListener('input', updateSimulation);
+      marginSlider.addEventListener('input', updateSimulation);
+    }
+  })();
+</script></main></div>
+
+</body></html>
