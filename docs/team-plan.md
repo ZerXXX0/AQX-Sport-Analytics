@@ -1,11 +1,11 @@
 # Five-member contribution plan
 
-Each member reviews and implements their own changes. These are planned commit units, not a fabricated contribution history. The initial working implementation is currently uncommitted.
+Role ownership follows `PROMP.md`. The user confirmed that Person 1 uses only the two existing 2023 archives in `data/raw`; this supersedes the example multi-season/v3 input scope in that prompt.
 
-1. Data: load archives; normalize schema; audit duplicate/unmatched events; export Parquet/manifest; test cleaning.
-2. Analytics: shooting metrics; pre-shot scores; clutch classification; zone/player comparison; statistical boundary tests.
-3. Visualization: court geometry; shot chart/tooltips; zone comparisons; clutch chart; accessibility and empty states.
-4. Modeling: chronological split; baseline training; evaluation/calibration; saved inference; model tests/documentation.
-5. App/submission: app setup; overview/explorer integration; clutch/model integration; deployment verification; README/screenshots/Devpost materials.
+1. **Person 1 — Data engineering:** `etl/`, `analytics_store.py`, `test_etl.py`, Parquet, quality manifest, and `docs/data-contract.md`. Run `python -m etl` independently of model training. Deliver one NBA 2023/24 regular season using `shotdetail` and legacy `nbastats`.
+2. **Person 2 — Modeling:** consume the Parquet contract; own feature engineering, chronological partitions, training, evaluation, explainability, and prediction artifacts. The existing logistic baseline lives in `core.py`; advanced models remain separate work.
+3. **Person 3 — Backend:** consume `analytics_store.connect()` and query helpers; own FastAPI endpoints, parameter validation, caching, and inference integration. DuckDB helpers are available; HTTP endpoints remain separate work.
+4. **Person 4 — Frontend:** own Next.js application, dashboard, comparisons, methodology view, and frontend states. The current Streamlit application remains the runnable prototype.
+5. **Person 5 — Visualization:** own court rendering, shot visualization, overlays, tooltips, and visual decision support. The current Plotly court is in `charts.py`.
 
-Use branches feat/data-pipeline, feat/analytics, feat/visualizations, feat/shot-model, feat/streamlit-app. Review pull requests before merging. Integrate a runnable version early. Keep data and secrets out of Git.
+These are ownership assignments, not claims of individual commit authorship. Review changes before merging. Coordinate schema changes with Persons 2 and 3; do not treat unknown score context as a known non-clutch attempt. Processed outputs and model binaries are regenerated locally and ignored by Git. Only the two approved raw archives are versioned.
