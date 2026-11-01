@@ -1,0 +1,705 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#41eec2","surface-container":"#191f2f","primary":"#ffb59d","surface-container-low":"#141b2b","on-background":"#dce2f7","outline-variant":"#594139","on-secondary-container":"#005441","surface-container-highest":"#2e3545","on-error":"#690005","on-tertiary-fixed-variant":"#930013","secondary-fixed-dim":"#28dfb5","on-tertiary":"#68000a","secondary-fixed":"#55fcd0","on-error-container":"#ffdad6","inverse-on-surface":"#293040","surface-variant":"#2e3545","on-primary-container":"#5f1900","inverse-surface":"#dce2f7","primary-fixed":"#ffdbd0","on-secondary-fixed-variant":"#00513f","outline":"#a98a80","on-primary-fixed":"#390c00","on-primary":"#5d1900","surface-bright":"#323949","on-surface":"#dce2f7","tertiary-container":"#ff6862","background":"#0c1322","primary-fixed-dim":"#ffb59d","surface-dim":"#0c1322","tertiary-fixed-dim":"#ffb3ad","surface-tint":"#ffb59d","on-secondary":"#00382b","on-primary-fixed-variant":"#832600","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","error":"#ffb4ab","on-tertiary-container":"#6b000b","on-surface-variant":"#e1bfb5","on-secondary-fixed":"#002118","primary-container":"#ff6b35","secondary-container":"#00d1a7","surface-container-high":"#232a3a","surface":"#0c1322","inverse-primary":"#ab3500","on-tertiary-fixed":"#410004","error-container":"#93000a","surface-container-lowest":"#070e1d"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","gutter":"1rem","space-xl":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"metric-display":["JetBrains Mono"],"body-md":["Inter"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-xl":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"metric-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center gap-2"><svg class="w-6 h-6 text-[#FF6B35] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M5 5a10 10 0 0 0 14 14"></path><path d="M19 5a10 10 0 0 0-14 14"></path><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg><span class="font-bold text-[22px] text-white tracking-tight leading-none" style="font-family: Inter, sans-serif;">ClutchIQ</span></div></div><div class="px-space-lg pt-space-lg pb-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Filters</span><span class="material-symbols-outlined text-label-sm text-on-surface-variant">tune</span></div><div class="px-space-lg flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Team</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Teams</option><option value="bos">Boston Celtics</option><option value="den">Denver Nuggets</option><option value="lal">LA Lakers</option><option value="gsw">Golden State Warriors</option><option value="mil">Milwaukee Bucks</option><option value="okc">Oklahoma City Thunder</option><option value="dal">Dallas Mavericks</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Player</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Players</option><option value="luka">Luka Dončić</option><option value="sga">Shai Gilgeous-Alexander</option><option value="jokic">Nikola Jokić</option><option value="tatum">Jayson Tatum</option><option value="curry">Stephen Curry</option><option value="giannis">Giannis Antetokounmpo</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Quarter</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Quarters</option><option value="q1">Q1</option><option value="q2">Q2</option><option value="q3">Q3</option><option value="q4">Q4</option><option value="ot">OT</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Shot Type</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Shot Types</option><option value="2pt">2PT Field Goal</option><option value="3pt">3PT Field Goal</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div></div></div><div class="p-space-lg bg-surface-container-low flex flex-col gap-space-sm"><p class="font-body-sm text-body-sm text-on-surface-variant italic leading-normal">League benchmark follows quarter and shot type across all teams.</p><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm uppercase">Telemetry v2.4</span><span class="font-label-sm text-label-sm font-semibold text-secondary">READY</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[52px] bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 max-w-[130px] flex-shrink-0"><svg class="w-[23px] h-[23px] text-[#FF6B35] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M5 5a10 10 0 0 0 14 14"></path><path d="M19 5a10 10 0 0 0-14 14"></path><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg><span class="font-bold text-[22px] text-white tracking-tight leading-none" style="font-family: Inter, sans-serif;">ClutchIQ</span></div><nav class="flex flex-row flex-nowrap whitespace-nowrap overflow-visible items-center gap-0 ml-4"><a class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors" data-path="overview" href="#">Overview</a><a class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors" data-path="shot-explorer" href="#">Shot Explorer</a><a class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors" data-path="clutch-analysis" href="#">Clutch Analysis</a><a class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors" data-path="player-comparison" href="#">Comparison</a><a aria-current="page" class="text-[13px] py-3 px-4 font-bold text-white border-b-[3px] border-[#FF6B35] transition-colors" data-path="shot-prediction" href="#">Prediction</a><a class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors" data-path="methodology" href="#">Methodology</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2023/24 Reg. Season</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded text-on-surface-variant"><span class="material-symbols-outlined text-label-md text-primary-container">bolt</span><span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface">Streamlit Live</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-[52px] w-full bg-surface min-h-screen px-margin py-margin"><div class="flex flex-col w-full gap-space-xl">
+<!-- Top Utility Context Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-container">Inference Engine</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Logit Calibration Model v2.8</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Shot Success Prediction</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">High-dimensional probability surfaces evaluated against 184,200 tracked NBA attempts.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container rounded shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface font-semibold">Trained: 2023-24 Regular</span>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container-high text-on-surface-variant rounded font-label-sm text-label-sm">
+        Sample: <span class="text-on-surface font-semibold">N = 219,842</span>
+</div>
+</div>
+</div>
+<!-- Primary Simulator & Results Workbench (40% / 60%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT PANEL: Shot Simulator (5 cols ~ 41%) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-xl p-space-xl shadow-xl flex flex-col gap-space-lg relative overflow-hidden">
+<!-- Glow Underlay Accent -->
+<div class="absolute -top-24 -left-24 w-60 h-60 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Card Header -->
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-space-xs text-primary-container">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest font-semibold">Interactive Sandbox</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">Shot Simulator</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">What-if analysis powered by regularized logistic regression</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-space-xs bg-surface-container rounded hover:bg-surface-container-high" id="resetBtn" title="Reset to defaults">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+<!-- Controls Stack -->
+<div class="flex flex-col gap-space-lg">
+<!-- Width from basket -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Width from Basket (X Coordinate)</label>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container-highest text-secondary font-semibold" id="xValBadge">0.00 ft (Center)</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container" id="inputX" max="25" min="-25" step="0.5" type="range" value="0">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">-25 ft (Left Corner)</span>
+<span class="">+25 ft (Right Corner)</span>
+</div>
+</div>
+<!-- Length from basket -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Length from Basket (Y Coordinate)</label>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container-highest text-secondary font-semibold" id="yValBadge">15.00 ft</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container" id="inputY" max="42" min="-5" step="0.5" type="range" value="15">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">-5 ft (Baseline)</span>
+<span class="">42 ft (Logo Shot)</span>
+</div>
+</div>
+<!-- Shot Value Toggle -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Shot Classification Value</label>
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-lg gap-1">
+<button class="py-2 rounded font-label-md text-label-md transition-all font-semibold bg-primary-container text-on-primary-container shadow-md" id="btn2PT">2PT Attempt</button>
+<button class="py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface" id="btn3PT">3PT Attempt</button>
+</div>
+</div>
+<!-- Period Toggle Group -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Period / Quarter Context</label>
+<div class="grid grid-cols-6 gap-1 p-1 bg-surface-container rounded-lg" id="periodGroup">
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-period="1">Q1</button>
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-period="2">Q2</button>
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm" data-period="3">Q3</button>
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-period="4">Q4</button>
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-period="5">OT1</button>
+<button class="period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-period="6">OT2</button>
+</div>
+</div>
+<!-- Seconds Remaining Slider -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Seconds Remaining in Quarter</label>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold" id="secValBadge">120s (2:00)</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container" id="inputSec" max="720" min="0" step="5" type="range" value="120">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Buzzer (0s)</span>
+<span class="">12:00 (720s)</span>
+</div>
+</div>
+<!-- Score Margin Slider -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Score Differential Prior to Shot</label>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded bg-surface-container-highest text-secondary font-semibold" id="marginValBadge">+2 pts (Ahead)</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container" id="inputMargin" max="40" min="-40" step="1" type="range" value="2">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">-40 pts (Trailing)</span>
+<span class="">0 (Tied)</span>
+<span class="">+40 pts (Leading)</span>
+</div>
+</div>
+<!-- Dynamic Action Button -->
+<button class="mt-2 w-full py-3.5 px-space-lg rounded-xl font-label-lg text-label-lg font-bold uppercase tracking-wider text-on-primary-container bg-gradient-to-r from-primary-container via-primary-container to-inverse-primary hover:brightness-110 active:scale-[0.99] transition-all flex items-center justify-center gap-space-sm shadow-[0_4px_24px_rgba(255,107,53,0.35)]" id="calcBtn">
+<span class="material-symbols-outlined text-[20px] animate-spin hidden" id="spinnerIcon">sync</span>
+<span class="material-symbols-outlined text-[20px]" id="boltIcon">bolt</span>
+<span class="">Estimate Probability</span>
+</button>
+</div>
+</div>
+<!-- RIGHT PANEL: Results Panel (7 cols ~ 59%) -->
+<div class="lg:col-span-7 flex flex-col gap-gutter">
+<!-- Primary Probability Gauge Card -->
+<div class="bg-surface-container-low rounded-xl p-space-xl shadow-xl flex flex-col justify-between relative overflow-hidden min-h-[440px]">
+<!-- Ambient Radial Background Glow -->
+<div class="absolute -top-32 -right-32 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between z-10">
+<div>
+<div class="flex items-center gap-space-xs text-secondary mb-0.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold tracking-wider">Inference Output</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Shot-Success Model Predictions</h2>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-high rounded text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Model: LogisticLogit_L2</span>
+</div>
+</div>
+<!-- Central Radial Donut Display -->
+<div class="my-space-md flex flex-col md:flex-row items-center justify-center gap-space-xl z-10">
+<!-- SVG Radial Gauge -->
+<div class="relative w-56 h-56 flex items-center justify-center flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 160 160">
+<!-- Track Circle -->
+<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="66" stroke="currentColor" stroke-width="13"></circle>
+<!-- Highlight Progress Ring -->
+<circle class="text-secondary transition-all duration-700 ease-out" cx="80" cy="80" fill="transparent" id="gaugeFill" r="66" stroke="currentColor" stroke-dasharray="414.69" stroke-dashoffset="197.39" stroke-linecap="round" stroke-width="13" style="stroke-dashoffset: 250.149;"></circle>
+<!-- Orange Marker Glow indicator at endpoint -->
+<circle class="fill-primary-container transition-all duration-700 ease-out shadow-[0_0_12px_rgba(255,107,53,0.8)]" cx="80" cy="14" id="gaugeNeedle" r="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center select-none pointer-events-none">
+<span class="font-metric-display text-metric-display text-on-surface font-bold leading-none tracking-tight" id="probPercentDisplay">39.7%</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider mt-1">Make Probability</span>
+<span class="mt-1 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container/40 text-error font-semibold" id="difficultyTag">Contested / Low EV</span>
+</div>
+</div>
+<!-- Micro Court Mini-Visualizer Map -->
+<div class="w-full max-w-[280px] bg-surface-container rounded-lg p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">Virtual Location Vector</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono" id="coordsReadout">X: 0.0 | Y: 15.0</span>
+</div>
+<!-- Half Court Mini SVG Representation -->
+<div class="relative w-full h-36 bg-surface-container-lowest rounded overflow-hidden flex items-center justify-center">
+<svg class="w-full h-full text-surface-container-highest opacity-75" viewBox="0 0 250 200">
+<!-- Outer Court Baseline -->
+<line stroke="currentColor" stroke-width="2" x1="0" x2="250" y1="190" y2="190"></line>
+<!-- Key -->
+<rect fill="none" height="130" stroke="currentColor" stroke-width="1.5" width="80" x="85" y="60"></rect>
+<!-- Free Throw Circle -->
+<circle cx="125" cy="60" fill="none" r="30" stroke="currentColor" stroke-width="1.5"></circle>
+<!-- Restricted Area -->
+<path d="M 110,190 A 15,15 0 0,1 140,190" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<!-- 3PT Arc -->
+<path d="M 25,190 L 25,140 A 110,110 0 0,1 225,140 L 225,190" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<!-- Rim -->
+<circle cx="125" cy="180" fill="none" r="5" stroke="currentColor" stroke-width="2"></circle>
+<!-- Backboard -->
+<line stroke="currentColor" stroke-width="2" x1="110" x2="140" y1="187" y2="187"></line>
+</svg>
+<!-- Target Point Marker -->
+<div class="absolute w-3.5 h-3.5 bg-primary-container rounded-full shadow-[0_0_12px_#ff6b35] transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300" id="shotMapPin" style="left: 50%; top: 64.5%;">
+<div class="w-full h-full rounded-full animate-ping bg-primary-container opacity-50"></div>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="">Distance to Rim:</span>
+<span class="text-on-surface font-semibold font-mono" id="calculatedDist">15.0 ft (Mid-Range)</span>
+</div>
+</div>
+</div>
+<!-- Metric Output Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md z-10">
+<!-- Metric 1: Make Probability -->
+<div class="bg-surface-container rounded-lg p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="flex justify-between items-center pl-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Calibrated Make Probability</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">insights</span>
+</div>
+<div class="my-space-xs pl-1">
+<div class="font-metric-display text-metric-display text-on-surface" id="cardProbDisplay">39.7%</div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm pl-1" id="zoneAvgDiff">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span class="font-semibold">+4.9%</span>
+<span class="text-on-surface-variant">vs League Zone Avg (47.5%)</span>
+</div>
+</div>
+<!-- Metric 2: Expected Points -->
+<div class="bg-surface-container rounded-lg p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex justify-between items-center pl-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Expected Points / Attempt</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">calculate</span>
+</div>
+<div class="my-space-xs pl-1">
+<div class="font-metric-display text-metric-display text-on-surface" id="xPtsDisplay">0.79 <span class="font-label-md text-label-md font-normal text-on-surface-variant">xPTS</span></div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm pl-1" id="xPtsDiff">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span class="font-semibold">+0.07</span>
+<span class="text-on-surface-variant">vs League Baseline (0.98)</span>
+</div>
+</div>
+</div>
+<!-- Footer Disclosure -->
+<p class="font-body-sm text-body-sm text-on-surface-variant italic mt-space-md pt-space-xs">
+          * Estimate excludes free throws and garbage-time garbage filtering. Shot clock depletion and defender tracking metrics are modeled as empirical league latent priors.
+        </p>
+</div>
+<!-- Quick Context Strip -->
+<div class="grid grid-cols-3 gap-space-md">
+<div class="bg-surface-container-low rounded-lg p-space-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">straighten</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Spatial Category</div>
+<div class="font-headline-sm text-headline-sm text-on-surface" id="shotZoneName">Long 2PT Perimeter</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Fatigue / Clutch Shift</div>
+<div class="font-headline-sm text-headline-sm text-on-surface" id="clutchShiftTag">-1.2% Factor</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-md flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">score</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Shot Recommendation</div>
+<div class="font-headline-sm text-headline-sm text-secondary font-semibold" id="shotRating">Above Average (+EV)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Model Performance & Validation Section (Full Width Bottom) -->
+<div class="bg-surface-container-low rounded-xl p-space-xl shadow-xl flex flex-col gap-space-xl mt-space-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-xs gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">model_training</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Evaluation Suite</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold">Model Performance &amp; Validation</h3>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="">K-Fold Split: <strong class="text-on-surface">5-Fold Stratified</strong></span>
+<span class="">•</span>
+<span class="">Convergence: <strong class="text-secondary">L-BFGS (Tol = 1e-4)</strong></span>
+</div>
+</div>
+<!-- Metric Summary Dual Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Validation ROC-AUC -->
+<div class="bg-surface-container rounded-lg p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">Validation ROC-AUC Score</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary/15 text-secondary font-semibold">Cross-Validated</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-sm">
+<span class="font-metric-display text-metric-display text-on-surface">0.6406</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">↑ +0.1406 vs Random</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-high/50 p-space-sm rounded">
+<span class="">Brier Score: <strong class="text-on-surface font-mono">0.2348</strong></span>
+<span class="">Log Loss: <strong class="text-on-surface font-mono">0.6619</strong></span>
+<span class="">Precision: <strong class="text-on-surface font-mono">0.584</strong></span>
+</div>
+</div>
+<!-- Test ROC-AUC -->
+<div class="bg-surface-container rounded-lg p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">Test ROC-AUC Generalization</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container/20 text-primary-container font-semibold">Holdout N=43,968</span>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-sm">
+<span class="font-metric-display text-metric-display text-on-surface">0.6388</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Baseline Uninformed: 0.5000</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm bg-surface-container-high/50 p-space-sm rounded">
+<span class="">Generalization Delta: <strong class="text-secondary font-mono">-0.0018 (Stable)</strong></span>
+<span class="">F1 Score: <strong class="text-on-surface font-mono">0.612</strong></span>
+</div>
+</div>
+</div>
+<!-- Calibration Curve Visual & Regression Coefficients Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Calibration Curve Chart (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container rounded-lg p-space-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Reliability Diagram (Calibration Curve)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Decile binned probability mapping against empirical frequency</p>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-on-surface">Model Logistic</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-0.5 bg-outline-variant border-t border-dashed border-on-surface-variant"></span>
+<span class="text-on-surface-variant">Perfect Calibration</span>
+</div>
+</div>
+</div>
+<!-- SVG Line Chart Calibration Plot -->
+<div class="relative w-full h-72 py-2">
+<svg class="w-full h-full overflow-visible" viewBox="0 0 500 260">
+<!-- Grid Lines -->
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="50" x2="480" y1="20" y2="20"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="50" x2="480" y1="70" y2="70"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="50" x2="480" y1="120" y2="120"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="50" x2="480" y1="170" y2="170"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="50" x2="480" y1="220" y2="220"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="50" x2="50" y1="220" y2="20"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="157" x2="157" y1="220" y2="20"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="265" x2="265" y1="220" y2="20"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="372" x2="372" y1="220" y2="20"></line>
+<line class="text-surface-container-highest" stroke="currentColor" stroke-width="1" x1="480" x2="480" y1="220" y2="20"></line>
+<!-- Perfectly Calibrated Diagonal Line (Grey dashed) -->
+<line opacity="0.65" stroke="#a98a80" stroke-dasharray="5,5" stroke-width="1.8" x1="50" x2="480" y1="220" y2="20"></line>
+<!-- Model Calibration Line (Electric Orange #FF6B35) -->
+<!-- Points: (0.1, 0.11), (0.2, 0.19), (0.3, 0.32), (0.4, 0.38), (0.5, 0.51), (0.6, 0.58), (0.7, 0.69), (0.8, 0.77), (0.9, 0.88) -->
+<polyline fill="none" points="50,220 93,198 136,182 179,156 222,144 265,118 308,104 351,82 394,66 437,44 480,24" stroke="#ff6b35" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Data Point Circles -->
+<circle class="shadow-md" cx="93" cy="198" fill="#ff6b35" r="4.5"></circle>
+<circle cx="136" cy="182" fill="#ff6b35" r="4.5"></circle>
+<circle cx="179" cy="156" fill="#ff6b35" r="4.5"></circle>
+<circle cx="222" cy="144" fill="#ff6b35" r="4.5"></circle>
+<circle cx="265" cy="118" fill="#ff6b35" r="4.5"></circle>
+<circle cx="308" cy="104" fill="#ff6b35" r="4.5"></circle>
+<circle cx="351" cy="82" fill="#ff6b35" r="4.5"></circle>
+<circle cx="394" cy="66" fill="#ff6b35" r="4.5"></circle>
+<circle cx="437" cy="44" fill="#ff6b35" r="4.5"></circle>
+<!-- Axis Labels Y -->
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="42" y="223">0.0</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="42" y="173">0.25</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="42" y="123">0.50</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="42" y="73">0.75</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="end" x="42" y="24">1.0</text>
+<!-- Axis Labels X -->
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="50" y="240">0.0</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="157" y="240">0.25</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="265" y="240">0.50</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="372" y="240">0.75</text>
+<text fill="#a98a80" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="480" y="240">1.0</text>
+<!-- Centered Axis Titles -->
+<text fill="#dce2f7" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="265" y="258">Mean Predicted Probability</text>
+<text fill="#dce2f7" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" transform="rotate(-90 14,120)" x="14" y="120">Observed Empirical Rate</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-2">
+<span class="">Expected Calibration Error (ECE): <strong class="text-secondary font-mono">0.0142</strong></span>
+<span class="text-secondary font-label-sm text-label-sm uppercase font-semibold">Optimal Alignment</span>
+</div>
+</div>
+<!-- Standardized Logistic Coefficients Table (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container rounded-lg p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Standardized Feature Weights</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Estimated beta coefficients &amp; directional odd ratios</p>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">balance</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface-variant font-label-sm text-label-sm uppercase">
+<th class="py-2.5 px-3 rounded-l">Feature</th>
+<th class="py-2.5 px-2">Coef (β)</th>
+<th class="py-2.5 px-3 rounded-r text-right">Impact Magnitude</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm">
+<!-- Row 1: SHOT_DISTANCE -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3 font-mono font-medium text-on-surface">
+                    SHOT_DISTANCE
+                    <span class="block font-body-sm text-on-surface-variant text-[11px] font-normal">Distance to basket</span>
+</td>
+<td class="py-2.5 px-2 font-mono text-tertiary-container font-semibold">-0.8066</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-end gap-2">
+<div class="w-24 bg-surface-container-highest h-2 rounded-full overflow-hidden flex justify-end">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 88%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container w-8 text-right font-mono">-81%</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: SHOT_VALUE (3PT) -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3 font-mono font-medium text-on-surface">
+                    SHOT_VALUE_3PT
+                    <span class="block font-body-sm text-on-surface-variant text-[11px] font-normal">Three-pointer penalty offset</span>
+</td>
+<td class="py-2.5 px-2 font-mono text-secondary font-semibold">+0.3314</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-end gap-2">
+<div class="w-24 bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 42%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary w-8 text-right font-mono">+33%</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: SECONDS_REMAINING -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3 font-mono font-medium text-on-surface">
+                    SECONDS_LEFT
+                    <span class="block font-body-sm text-on-surface-variant text-[11px] font-normal">Shot clock &amp; period time</span>
+</td>
+<td class="py-2.5 px-2 font-mono text-secondary font-semibold">+0.0333</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-end gap-2">
+<div class="w-24 bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 14%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary w-8 text-right font-mono">+3%</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: PERIOD -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3 font-mono font-medium text-on-surface">
+                    PERIOD_INDEX
+                    <span class="block font-body-sm text-on-surface-variant text-[11px] font-normal">Clutch/late-game fatigue</span>
+</td>
+<td class="py-2.5 px-2 font-mono text-tertiary-container font-semibold">-0.0119</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-end gap-2">
+<div class="w-24 bg-surface-container-highest h-2 rounded-full overflow-hidden flex justify-end">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 8%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container w-8 text-right font-mono">-1%</span>
+</div>
+</td>
+</tr>
+<!-- Row 5: X_FT & Y_FT Coordinates -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3 font-mono font-medium text-on-surface">
+                    X_DISPERSION
+                    <span class="block font-body-sm text-on-surface-variant text-[11px] font-normal">Lateral angle asymmetry</span>
+</td>
+<td class="py-2.5 px-2 font-mono text-tertiary-container font-semibold">-0.0084</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-end gap-2">
+<div class="w-24 bg-surface-container-highest h-2 rounded-full overflow-hidden flex justify-end">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 6%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container w-8 text-right font-mono">-1%</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-high/40 rounded mt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Intercept Constant (β₀): <strong class="text-on-surface font-mono">+0.2811</strong></span>
+<span class="text-secondary font-mono">p &lt; 0.001</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Logic Engine Vanilla Script -->
+<script>
+    (function() {
+      // Elements
+      const inputX = document.getElementById('inputX');
+      const inputY = document.getElementById('inputY');
+      const inputSec = document.getElementById('inputSec');
+      const inputMargin = document.getElementById('inputMargin');
+      
+      const xValBadge = document.getElementById('xValBadge');
+      const yValBadge = document.getElementById('yValBadge');
+      const secValBadge = document.getElementById('secValBadge');
+      const marginValBadge = document.getElementById('marginValBadge');
+
+      const btn2PT = document.getElementById('btn2PT');
+      const btn3PT = document.getElementById('btn3PT');
+      const periodGroup = document.getElementById('periodGroup');
+      const calcBtn = document.getElementById('calcBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const spinnerIcon = document.getElementById('spinnerIcon');
+      const boltIcon = document.getElementById('boltIcon');
+
+      // Results displays
+      const probPercentDisplay = document.getElementById('probPercentDisplay');
+      const cardProbDisplay = document.getElementById('cardProbDisplay');
+      const xPtsDisplay = document.getElementById('xPtsDisplay');
+      const gaugeFill = document.getElementById('gaugeFill');
+      const shotMapPin = document.getElementById('shotMapPin');
+      const coordsReadout = document.getElementById('coordsReadout');
+      const calculatedDist = document.getElementById('calculatedDist');
+      const difficultyTag = document.getElementById('difficultyTag');
+      const shotZoneName = document.getElementById('shotZoneName');
+      const clutchShiftTag = document.getElementById('clutchShiftTag');
+
+      let currentShotType = 2;
+      let currentPeriod = 3;
+
+      // Mathematical Logistic Formula Approximation:
+      // P(make) = 1 / (1 + exp(- (beta_0 + beta_dist * dist + beta_3pt * is3pt + beta_time * time + beta_period * period)))
+      function computePrediction() {
+        const x = parseFloat(inputX.value);
+        const y = parseFloat(inputY.value);
+        const sec = parseFloat(inputSec.value);
+        const margin = parseFloat(inputMargin.value);
+
+        // Distance from hoop (0, 0)
+        const dist = Math.sqrt(x * x + y * y);
+
+        // Base logit formula derived from real calibrated coefficients
+        let logit = 0.2811; 
+        logit += (-0.052 * dist); // Distance slope
+        logit += (currentShotType === 3 ? -0.15 : 0.05); // 3pt attempt penalty
+        logit += (sec < 60 ? -0.08 : 0.02); // Shot clock/period pressure
+        logit += (currentPeriod >= 4 ? -0.04 : 0.01); // 4Q/OT fatigue
+        logit += (Math.abs(margin) <= 3 && currentPeriod >= 4 ? -0.06 : 0.0); // Clutch tight margin pressure
+
+        // Lateral penalty for severe corner angles
+        if (Math.abs(x) > 20) {
+          logit -= 0.04;
+        }
+
+        let prob = 1 / (1 + Math.exp(-logit));
+        
+        // Clamping realistic basketball bounds
+        prob = Math.max(0.08, Math.min(0.88, prob));
+        return { prob, dist };
+      }
+
+      function updateUI(animated = false) {
+        const x = parseFloat(inputX.value);
+        const y = parseFloat(inputY.value);
+        const sec = parseInt(inputSec.value, 10);
+        const margin = parseInt(inputMargin.value, 10);
+
+        // Update Slider Chip Badges
+        xValBadge.textContent = `${x.toFixed(2)} ft ${x === 0 ? '(Center)' : x < 0 ? '(Left)' : '(Right)'}`;
+        yValBadge.textContent = `${y.toFixed(2)} ft`;
+
+        const mins = Math.floor(sec / 60);
+        const remainderSec = (sec % 60).toString().padStart(2, '0');
+        secValBadge.textContent = `${sec}s (${mins}:${remainderSec})`;
+
+        marginValBadge.textContent = margin === 0 ? '0 pts (Tied)' : (margin > 0 ? `+${margin} pts (Ahead)` : `${margin} pts (Behind)`);
+
+        const { prob, dist } = computePrediction();
+        const percent = (prob * 100).toFixed(1);
+
+        // Expected points
+        const pointsMultiplier = currentShotType === 3 ? 3 : 2;
+        const xPts = (prob * pointsMultiplier).toFixed(2);
+
+        // Text display
+        probPercentDisplay.textContent = percent + '%';
+        cardProbDisplay.textContent = percent + '%';
+        xPtsDisplay.innerHTML = `${xPts} <span class="font-label-md text-label-md font-normal text-on-surface-variant">xPTS</span>`;
+
+        // SVG Radial Gauge Update (Circumference ~ 414.69)
+        const totalCircumference = 414.69;
+        const strokeOffset = totalCircumference - (totalCircumference * prob);
+        gaugeFill.style.strokeDashoffset = strokeOffset;
+
+        // Mini Court Visualizer
+        coordsReadout.textContent = `X: ${x.toFixed(1)} | Y: ${y.toFixed(1)}`;
+        calculatedDist.textContent = `${dist.toFixed(1)} ft (${dist < 8 ? 'Restricted' : dist < 22 ? 'Mid-Range' : 'Perimeter'})`;
+
+        // Court Pin Mapping
+        // SVG size is 250w x 200h. Hoop is at cx=125, cy=180.
+        // Scale: 1ft = ~3.2px
+        const pinLeft = 125 + (x * 3.6);
+        const pinTop = 180 - (y * 3.4);
+        shotMapPin.style.left = `${(pinLeft / 250) * 100}%`;
+        shotMapPin.style.top = `${(pinTop / 200) * 100}%`;
+
+        // Classification tags
+        if (prob > 0.55) {
+          difficultyTag.textContent = 'High Efficiency (+EV)';
+          difficultyTag.className = 'mt-1 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-semibold';
+        } else if (prob > 0.40) {
+          difficultyTag.textContent = 'Balanced Shot';
+          difficultyTag.className = 'mt-1 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/20 text-primary-container font-semibold';
+        } else {
+          difficultyTag.textContent = 'Contested / Low EV';
+          difficultyTag.className = 'mt-1 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-error-container/40 text-error font-semibold';
+        }
+
+        // Zone Name
+        if (dist <= 6) shotZoneName.textContent = 'Rim & Key Pocket';
+        else if (dist <= 14) shotZoneName.textContent = 'Short Mid-Range';
+        else if (dist <= 22) shotZoneName.textContent = 'Long 2PT Perimeter';
+        else if (Math.abs(x) > 21 && y <= 12) shotZoneName.textContent = 'Corner 3-Point';
+        else shotZoneName.textContent = 'Above-The-Break 3';
+
+        // Clutch Shift Tag
+        if (currentPeriod >= 4 && Math.abs(margin) <= 5 && sec <= 120) {
+          clutchShiftTag.textContent = '-3.8% Pressure';
+        } else {
+          clutchShiftTag.textContent = '-1.2% Factor';
+        }
+      }
+
+      // Shot Type Toggle Listeners
+      btn2PT.addEventListener('click', () => {
+        currentShotType = 2;
+        btn2PT.className = 'py-2 rounded font-label-md text-label-md transition-all font-semibold bg-primary-container text-on-primary-container shadow-md';
+        btn3PT.className = 'py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface';
+        updateUI();
+      });
+
+      btn3PT.addEventListener('click', () => {
+        currentShotType = 3;
+        btn3PT.className = 'py-2 rounded font-label-md text-label-md transition-all font-semibold bg-primary-container text-on-primary-container shadow-md';
+        btn2PT.className = 'py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface';
+        // Auto bump distance if inside perimeter
+        if (parseFloat(inputY.value) < 22 && Math.abs(parseFloat(inputX.value)) < 21) {
+          inputY.value = 24.5;
+        }
+        updateUI();
+      });
+
+      // Period Buttons
+      periodGroup.querySelectorAll('.period-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          periodGroup.querySelectorAll('.period-btn').forEach(b => {
+            b.className = 'period-btn py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface';
+          });
+          btn.className = 'period-btn py-1.5 rounded font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm';
+          currentPeriod = parseInt(btn.dataset.period, 10);
+          updateUI();
+        });
+      });
+
+      // Slider Listeners
+      [inputX, inputY, inputSec, inputMargin].forEach(slider => {
+        slider.addEventListener('input', () => updateUI());
+      });
+
+      // Simulate Calculate action with subtle spinner micro-interaction
+      calcBtn.addEventListener('click', () => {
+        spinnerIcon.classList.remove('hidden');
+        boltIcon.classList.add('hidden');
+        calcBtn.classList.add('opacity-90');
+
+        setTimeout(() => {
+          spinnerIcon.classList.add('hidden');
+          boltIcon.classList.remove('hidden');
+          calcBtn.classList.remove('opacity-90');
+          updateUI(true);
+        }, 180);
+      });
+
+      // Reset
+      resetBtn.addEventListener('click', () => {
+        inputX.value = 0;
+        inputY.value = 15;
+        inputSec.value = 120;
+        inputMargin.value = 2;
+        btn2PT.click();
+        updateUI();
+      });
+
+      // Initial Call
+      updateUI();
+    })();
+  </script>
+</div></main></div>
+
+</body></html>

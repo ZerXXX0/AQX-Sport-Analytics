@@ -7,6 +7,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent
 
 def read_archive(path):
+    """Read a .tar.xz archive or a plain .csv file."""
+    path = Path(path)
+    if path.suffix == '.csv' and path.exists():
+        return pd.read_csv(path, dtype={'GAME_ID': str})
     with tarfile.open(path, 'r:xz') as archive:
         member = next(m for m in archive if m.name.endswith('.csv'))
         return pd.read_csv(archive.extractfile(member), dtype={'GAME_ID': str})
@@ -14,9 +18,22 @@ def read_archive(path):
 def clutch(period, seconds, margin, limit=300, gap=5):
     return (period >= 4) & (seconds <= limit) & (margin.abs() <= gap) & margin.notna()
 
+def _resolve(source, name, season):
+    """Return path to .tar.xz if it exists, else fall back to plain .csv."""
+    tar = Path(source) / f'{name}_{season}.tar.xz'
+    if tar.exists():
+        return tar
+    csv = Path(source) / f'{name}_{season}.csv'
+    if csv.exists():
+        return csv
+    raise FileNotFoundError(
+        f"Dataset not found. Tried:\n  {tar}\n  {csv}\n"
+        f"Place shotdetail_{season}.tar.xz / .csv and nbastats_{season}.tar.xz / .csv in: {source}"
+    )
+
 def prepare(source, season=2023):
-    shots = read_archive(source / f'shotdetail_{season}.tar.xz')
-    pbp = read_archive(source / f'nbastats_{season}.tar.xz')
+    shots = read_archive(_resolve(source, 'shotdetail', season))
+    pbp   = read_archive(_resolve(source, 'nbastats',   season))
     raw_count = len(shots)
     shots = shots.drop_duplicates(['GAME_ID', 'GAME_EVENT_ID'])
     shots = shots[shots.SHOT_MADE_FLAG.isin([0, 1]) & shots.SHOT_TYPE.isin(['2PT Field Goal', '3PT Field Goal']) & (shots.SHOT_ATTEMPTED_FLAG == 1)].copy()

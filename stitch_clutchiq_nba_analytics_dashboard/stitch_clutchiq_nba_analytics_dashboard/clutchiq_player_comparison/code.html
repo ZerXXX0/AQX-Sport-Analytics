@@ -1,0 +1,552 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#41eec2","surface-container":"#191f2f","primary":"#ffb59d","surface-container-low":"#141b2b","on-background":"#dce2f7","outline-variant":"#594139","on-secondary-container":"#005441","surface-container-highest":"#2e3545","on-error":"#690005","on-tertiary-fixed-variant":"#930013","secondary-fixed-dim":"#28dfb5","on-tertiary":"#68000a","secondary-fixed":"#55fcd0","on-error-container":"#ffdad6","inverse-on-surface":"#293040","surface-variant":"#2e3545","on-primary-container":"#5f1900","inverse-surface":"#dce2f7","primary-fixed":"#ffdbd0","on-secondary-fixed-variant":"#00513f","outline":"#a98a80","on-primary-fixed":"#390c00","on-primary":"#5d1900","surface-bright":"#323949","on-surface":"#dce2f7","tertiary-container":"#ff6862","background":"#0c1322","primary-fixed-dim":"#ffb59d","surface-dim":"#0c1322","tertiary-fixed-dim":"#ffb3ad","surface-tint":"#ffb59d","on-secondary":"#00382b","on-primary-fixed-variant":"#832600","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","error":"#ffb4ab","on-tertiary-container":"#6b000b","on-surface-variant":"#e1bfb5","on-secondary-fixed":"#002118","primary-container":"#ff6b35","secondary-container":"#00d1a7","surface-container-high":"#232a3a","surface":"#0c1322","inverse-primary":"#ab3500","on-tertiary-fixed":"#410004","error-container":"#93000a","surface-container-lowest":"#070e1d"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","gutter":"1rem","space-xl":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"metric-display":["JetBrains Mono"],"body-md":["Inter"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-xl":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"metric-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="ClutchIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wxrw917tFqHSwxHCPdzymoaX16lA9lorP3sDmjOtsyP5Z5KFrkQavMtevYic4_St8XHsvXagtKCxlcr_70yNaZ6DpjTdLIhuC9DpssUesb7bZ6vJ_GjrtZXNt127TQVsBWtI2GZdwWDU1JST8uMeGxiDxKQjv2s6xPzfGJ7UnD4ZeDD2cy5Cy_T2MhOjL9V5zcDuYoMkpcaAFRlDe34_yw2DifmSYAolP00G7tWd6k"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Clutch<span class="text-primary-container">IQ</span></span></div></div><div class="px-space-lg pt-space-lg pb-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Filters</span><span class="material-symbols-outlined text-label-sm text-on-surface-variant">tune</span></div><div class="px-space-lg flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Team</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Teams</option><option value="bos">Boston Celtics</option><option value="den">Denver Nuggets</option><option value="lal">LA Lakers</option><option value="gsw">Golden State Warriors</option><option value="mil">Milwaukee Bucks</option><option value="okc">Oklahoma City Thunder</option><option value="dal">Dallas Mavericks</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Player</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Players</option><option value="luka">Luka Dončić</option><option value="sga">Shai Gilgeous-Alexander</option><option value="jokic">Nikola Jokić</option><option value="tatum">Jayson Tatum</option><option value="curry">Stephen Curry</option><option value="giannis">Giannis Antetokounmpo</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Quarter</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Quarters</option><option value="q1">Q1</option><option value="q2">Q2</option><option value="q3">Q3</option><option value="q4">Q4</option><option value="ot">OT</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Shot Type</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Shot Types</option><option value="2pt">2PT Field Goal</option><option value="3pt">3PT Field Goal</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div></div></div><div class="p-space-lg bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm uppercase">Telemetry v2.4</span><span class="font-label-sm text-label-sm font-semibold text-secondary">READY</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin h-[52px]"><div class="flex items-center gap-6 h-full"><div class="flex items-center gap-2 max-w-[130px] flex-shrink-0"><svg class="w-6 h-6 text-primary-container flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M4.93 4.93c4.24 4.24 6.87 9.8 7.07 15.07"></path><path d="M19.07 4.93c-4.24 4.24-6.87 9.8-7.07 15.07"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg><span class="font-bold text-[22px] text-white tracking-tight leading-none" style="font-family: 'Inter', sans-serif;">ClutchIQ</span></div><nav class="flex flex-row flex-nowrap whitespace-nowrap overflow-visible items-center h-full gap-0"><a href="#" data-path="overview" class="text-[13px] py-3 px-4 font-medium transition-colors hover:text-white" style="color: #6B7280;">Overview</a><a href="#" data-path="shot-explorer" class="text-[13px] py-3 px-4 font-medium transition-colors hover:text-white" style="color: #6B7280;">Shot Explorer</a><a href="#" data-path="clutch-analysis" class="text-[13px] py-3 px-4 font-medium transition-colors hover:text-white" style="color: #6B7280;">Clutch Analysis</a><a href="#" data-path="player-comparison" aria-current="page" class="text-[13px] py-3 px-4 font-bold text-white transition-colors h-full flex items-center" style="border-bottom: 3px solid #FF6B35;">Comparison</a><a href="#" data-path="shot-prediction" class="text-[13px] py-3 px-4 font-medium transition-colors hover:text-white" style="color: #6B7280;">Prediction</a><a href="#" data-path="methodology" class="text-[13px] py-3 px-4 font-medium transition-colors hover:text-white" style="color: #6B7280;">Methodology</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2023/24 Reg. Season</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded text-on-surface-variant"><span class="material-symbols-outlined text-label-md text-primary-container">bolt</span><span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface">Streamlit Live</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative w-full bg-surface min-h-screen px-margin py-margin pt-[52px]"><div class="flex flex-col w-full gap-space-xl">
+<!-- Context Header & Telemetry Strip -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-primary-container/20 text-primary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider">H2H Analytics Engine</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">·</span>
+<span class="text-secondary font-label-sm text-label-sm flex items-center gap-1 font-medium">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Sample Size: 6,345 FGA Locked
+        </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Head-to-Head Player Comparison</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Compare multiple player shooting distributions and efficiency profiles under identical game contexts.</p>
+</div>
+<!-- Quick Mode Toggles & Export -->
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<div class="bg-surface-container-high rounded p-1 flex items-center gap-1">
+<button class="px-space-sm py-1 rounded bg-surface text-primary-container font-label-sm text-label-sm font-semibold shadow-sm transition-all">Per 100 Poss</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Raw Totals</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">Clutch Weight (Q4 &lt; 5m)</button>
+</div>
+<button class="h-9 px-space-md rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">ios_share</span>
+<span class="">Export Matrix</span>
+</button>
+</div>
+</div>
+<!-- Multi-Select Input Module -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md relative overflow-hidden flex flex-col gap-space-md">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-headline-sm">tune</span>
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Compare players across the selected filters</label>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 of 8 max selected</span>
+<button class="font-label-sm text-label-sm text-primary-container hover:underline cursor-pointer flex items-center gap-1" id="clearAllBtn">
+<span class="material-symbols-outlined text-[14px]">close</span>
+          Clear all
+        </button>
+</div>
+</div>
+<!-- Interactive Chip Deck and Input -->
+<div class="flex flex-wrap items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high min-h-[52px]">
+<!-- Luka Dončić -->
+<span class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-body-sm text-body-sm font-semibold shadow-sm transition-transform hover:scale-[1.02]">
+<span class="">Luka Dončić</span>
+<button class="flex items-center justify-center hover:opacity-75 transition-opacity" title="Remove Luka Dončić">
+<span class="material-symbols-outlined text-[16px] leading-none">close</span>
+</button>
+</span>
+<!-- Shai Gilgeous-Alexander -->
+<span class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-body-sm text-body-sm font-semibold shadow-sm transition-transform hover:scale-[1.02]">
+<span class="">Shai Gilgeous-Alexander</span>
+<button class="flex items-center justify-center hover:opacity-75 transition-opacity" title="Remove SGA">
+<span class="material-symbols-outlined text-[16px] leading-none">close</span>
+</button>
+</span>
+<!-- Jalen Brunson -->
+<span class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-body-sm text-body-sm font-semibold shadow-sm transition-transform hover:scale-[1.02]">
+<span class="">Jalen Brunson</span>
+<button class="flex items-center justify-center hover:opacity-75 transition-opacity" title="Remove Jalen Brunson">
+<span class="material-symbols-outlined text-[16px] leading-none">close</span>
+</button>
+</span>
+<!-- Anthony Edwards -->
+<span class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-body-sm text-body-sm font-semibold shadow-sm transition-transform hover:scale-[1.02]">
+<span class="">Anthony Edwards</span>
+<button class="flex items-center justify-center hover:opacity-75 transition-opacity" title="Remove Anthony Edwards">
+<span class="material-symbols-outlined text-[16px] leading-none">close</span>
+</button>
+</span>
+<!-- Autocomplete Input -->
+<div class="flex-1 min-w-[220px] flex items-center gap-space-xs px-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">person_search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none" placeholder="Type player name to add..." type="text">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] cursor-pointer">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Comparison Matrix Table -->
+<div class="bg-surface-container rounded-xl shadow-lg relative overflow-hidden">
+<!-- Glowing orange top accent line -->
+<div class="h-1 w-full bg-gradient-to-r from-primary-container via-primary to-secondary"></div>
+<div class="p-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Precision Shot Matrix</h2>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-semibold">2023-24 Regular Season</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(255,107,53,0.8)]"></span> Top Group Leader</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> Secondary Peak</span>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-md px-space-lg font-semibold">Player</th>
+<th class="py-space-md px-space-md font-semibold">Team</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">Attempts <span class="material-symbols-outlined text-[14px]">unfold_more</span></span>
+</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">FG% <span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></span>
+</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">3P% <span class="material-symbols-outlined text-[14px]">unfold_more</span></span>
+</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">eFG% <span class="material-symbols-outlined text-[14px]">unfold_more</span></span>
+</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">Pts / Attempt <span class="material-symbols-outlined text-[14px]">unfold_more</span></span>
+</th>
+<th class="py-space-md px-space-md text-right font-semibold cursor-pointer hover:text-on-surface">
+<span class="inline-flex items-center gap-1">Clutch FG% <span class="material-symbols-outlined text-[14px]">unfold_more</span></span>
+</th>
+<th class="py-space-md px-space-lg font-semibold">Best Zone</th>
+</tr>
+</thead>
+<tbody class="divide-none">
+<!-- Row 1: Luka Dončić -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-primary shadow-sm">LD</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Luka Dončić</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Point Forward #77</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">DAL</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface font-semibold">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                1,652 <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              48.7%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              38.2%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                57.3% <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1.18
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              46.2%
+            </td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Above Break 3 (38.8%)</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: Shai Gilgeous-Alexander -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-secondary shadow-sm">SGA</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Shai Gilgeous-Alexander</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Guard #2</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">OKC</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1,487
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                53.5% <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              35.3%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              56.7%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                1.21 <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                49.8% <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Mid-Range (51.2%)</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: Jalen Brunson -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-primary shadow-sm">JB</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Jalen Brunson</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Point Guard #11</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">NYK</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1,648
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              47.9%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary-container">
+                40.1% <span class="text-xs">🏆</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              54.3%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1.14
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              47.1%
+            </td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Paint Float (53.4%)</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: Anthony Edwards -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-label-md text-label-md font-bold text-secondary shadow-sm">AE</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Anthony Edwards</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Shooting Guard #5</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold">MIN</span>
+</td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1,558
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              46.1%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              35.7%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              52.2%
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              1.11
+            </td>
+<td class="py-space-md px-space-md text-right font-metric-display text-headline-sm text-on-surface">
+              41.5%
+            </td>
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Restricted Area (67.1%)</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Visual Benchmark & Multi-Dimension Telemetry Cards -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- 5-Dimensional Radar / Profile Multi-Bar Visualizer -->
+<div class="xl:col-span-8 bg-surface-container rounded-xl p-space-lg flex flex-col gap-space-lg shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-container font-semibold">Pentagonal Archetype Index</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">5-Dimension Comparative Profile</h3>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap items-center gap-space-md font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-3 h-3 rounded-full bg-primary-container"></span> Luka</span>
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-3 h-3 rounded-full bg-secondary"></span> SGA</span>
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-3 h-3 rounded-full bg-tertiary"></span> Brunson</span>
+<span class="flex items-center gap-1.5 text-on-surface"><span class="w-3 h-3 rounded-full bg-primary"></span> Edwards</span>
+</div>
+</div>
+<!-- Comparative Dimension Bars -->
+<div class="flex flex-col gap-space-lg">
+<!-- Dimension 1: Volume -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">local_fire_department</span>
+              1. Shot Volume &amp; Creation Rate
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Peak: Luka Dončić (98th %ile)</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 98%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container">98 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 88%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">88 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 96%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">96 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 91%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">91 %ile</span>
+</div>
+</div>
+</div>
+<!-- Dimension 2: 3PT Efficiency -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">track_changes</span>
+              2. Perimeter / 3PT Efficiency
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Peak: Jalen Brunson (40.1%)</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 89%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container">89 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 68%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">68 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 94%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">94 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 71%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">71 %ile</span>
+</div>
+</div>
+</div>
+<!-- Dimension 3: Mid-Range Lethality -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">circle</span>
+              3. Mid-Range Self-Creation
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Peak: SGA (51.2% FGA)</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 82%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container">82 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 99%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">99 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 86%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">86 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 74%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">74 %ile</span>
+</div>
+</div>
+</div>
+<!-- Dimension 4: Rim Finishing -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">sports_basketball</span>
+              4. Rim Finishing &amp; Pressure
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Peak: Edwards (67.1% restricted)</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 84%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container">84 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 90%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">90 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 81%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">81 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 96%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">96 %ile</span>
+</div>
+</div>
+</div>
+<!-- Dimension 5: Clutch Poise -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">bolt</span>
+              5. Clutch Poise (Final 5 Min ±5 Pts)
+            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Peak: SGA (49.8% FG)</span>
+</div>
+<div class="grid grid-cols-4 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 92%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container">92 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 97%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">97 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 93%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">93 %ile</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 79%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">79 %ile</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Caption Requirement -->
+<div class="pt-space-sm">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-normal">
+          Descriptive comparisons are not adjusted for defenders, roles, or shot difficulty.
+        </p>
+</div>
+</div>
+<!-- Editorial Scouting Split & Synergies -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Synergy Insight Card -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-secondary font-semibold">Clutch Divergence Insight</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">psychology</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">SGA vs. Luka Isolation Paradox</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          While <strong class="text-on-surface">Luka Dončić</strong> generates more overall offensive value via unprecedented volume and step-back 3-point gravity (57.3% eFG%), <strong class="text-on-surface">Shai Gilgeous-Alexander</strong> proves historically lethal in pure 1-on-1 clutch isolation, converting 49.8% inside the 16-foot arc under pressure.
+        </p>
+<div class="p-space-sm rounded-lg bg-surface-container-high flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Clutch Turnover Delta</span>
+<span class="font-metric-display text-label-lg text-secondary">-3.4% SGA Advantage</span>
+</div>
+</div>
+<!-- Shot Distribution Heat Split Mini-Card -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-primary-container font-semibold">Heavy Zone Breakdown</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">pie_chart</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Perimeter Shot Share</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Brunson (42.2%)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">Short Mid-Range (4-14ft)</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">SGA (39.8%)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface">High-Elevation Paint At-Rim</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Edwards (34.5%)</span>
+</div>
+</div>
+<button class="w-full mt-2 py-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="">Inspect 4-Player Court Overlay</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div>
+
+</body></html>

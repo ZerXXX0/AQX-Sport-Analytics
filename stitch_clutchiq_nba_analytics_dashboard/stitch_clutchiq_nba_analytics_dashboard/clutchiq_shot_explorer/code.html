@@ -1,0 +1,736 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#41eec2","surface-container":"#191f2f","primary":"#ffb59d","surface-container-low":"#141b2b","on-background":"#dce2f7","outline-variant":"#594139","on-secondary-container":"#005441","surface-container-highest":"#2e3545","on-error":"#690005","on-tertiary-fixed-variant":"#930013","secondary-fixed-dim":"#28dfb5","on-tertiary":"#68000a","secondary-fixed":"#55fcd0","on-error-container":"#ffdad6","inverse-on-surface":"#293040","surface-variant":"#2e3545","on-primary-container":"#5f1900","inverse-surface":"#dce2f7","primary-fixed":"#ffdbd0","on-secondary-fixed-variant":"#00513f","outline":"#a98a80","on-primary-fixed":"#390c00","on-primary":"#5d1900","surface-bright":"#323949","on-surface":"#dce2f7","tertiary-container":"#ff6862","background":"#0c1322","primary-fixed-dim":"#ffb59d","surface-dim":"#0c1322","tertiary-fixed-dim":"#ffb3ad","surface-tint":"#ffb59d","on-secondary":"#00382b","on-primary-fixed-variant":"#832600","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","error":"#ffb4ab","on-tertiary-container":"#6b000b","on-surface-variant":"#e1bfb5","on-secondary-fixed":"#002118","primary-container":"#ff6b35","secondary-container":"#00d1a7","surface-container-high":"#232a3a","surface":"#0c1322","inverse-primary":"#ab3500","on-tertiary-fixed":"#410004","error-container":"#93000a","surface-container-lowest":"#070e1d"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1.5rem","space-lg":"1rem","space-xs":"0.25rem","gutter":"1rem","space-xl":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","space-md":"0.75rem"},"fontFamily":{"body-lg":["Inter"],"metric-display":["JetBrains Mono"],"body-md":["Inter"],"label-sm":["JetBrains Mono"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-xl":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"]},"fontSize":{"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"metric-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="p-space-lg flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="ClutchIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wxrw917tFqHSwxHCPdzymoaX16lA9lorP3sDmjOtsyP5Z5KFrkQavMtevYic4_St8XHsvXagtKCxlcr_70yNaZ6DpjTdLIhuC9DpssUesb7bZ6vJ_GjrtZXNt127TQVsBWtI2GZdwWDU1JST8uMeGxiDxKQjv2s6xPzfGJ7UnD4ZeDD2cy5Cy_T2MhOjL9V5zcDuYoMkpcaAFRlDe34_yw2DifmSYAolP00G7tWd6k"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Clutch<span class="text-primary-container">IQ</span></span></div></div><div class="px-space-lg pt-space-lg pb-space-sm flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Filters</span><span class="material-symbols-outlined text-label-sm text-on-surface-variant">tune</span></div><div class="px-space-lg flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Team</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Teams</option><option value="bos">Boston Celtics</option><option value="den">Denver Nuggets</option><option value="lal">LA Lakers</option><option value="gsw">Golden State Warriors</option><option value="mil">Milwaukee Bucks</option><option value="okc">Oklahoma City Thunder</option><option value="dal">Dallas Mavericks</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Player</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Players</option><option value="luka">Luka Dončić</option><option value="sga">Shai Gilgeous-Alexander</option><option value="jokic">Nikola Jokić</option><option value="tatum">Jayson Tatum</option><option value="curry">Stephen Curry</option><option value="giannis">Giannis Antetokounmpo</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Quarter</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Quarters</option><option value="q1">Q1</option><option value="q2">Q2</option><option value="q3">Q3</option><option value="q4">Q4</option><option value="ot">OT</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div><div class="flex flex-col gap-space-xs"><label class="font-label-sm text-label-sm uppercase text-on-surface-variant">Shot Type</label><div class="relative"><select class="w-full bg-surface-container-high text-on-surface font-body-sm text-body-sm px-space-sm py-space-xs rounded appearance-none cursor-pointer focus:outline-none"><option value="all">All Shot Types</option><option value="2pt">2PT Field Goal</option><option value="3pt">3PT Field Goal</option></select><span class="material-symbols-outlined absolute right-2 top-2 text-label-md text-on-surface-variant pointer-events-none">expand_more</span></div></div></div></div><div class="p-space-lg bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm uppercase">Telemetry v2.4</span><span class="font-label-sm text-label-sm font-semibold text-secondary">READY</span></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[52px] bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin"><div class="flex items-center gap-6 h-full"><a href="#" class="flex items-center gap-2 max-w-[130px] select-none shrink-0"><svg class="w-[23px] h-[23px] shrink-0 text-[#FF6B35]" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2.1 13.4A10.1 10.1 0 0 0 12 22"></path><path d="M21.9 10.6A10.1 10.1 0 0 0 12 2"></path><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span class="font-bold text-[22px] text-white tracking-tight leading-none" style="font-family: 'Inter', sans-serif;">ClutchIQ</span></a><nav class="flex flex-row flex-nowrap whitespace-nowrap overflow-visible items-center h-full gap-1"><a href="#" data-path="overview" class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors">Overview</a><a href="#" data-path="shot-explorer" aria-current="page" class="text-[13px] py-3 px-4 font-bold text-white border-b-[3px] border-[#FF6B35] transition-colors">Shot Explorer</a><a href="#" data-path="clutch-analysis" class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors">Clutch Analysis</a><a href="#" data-path="player-comparison" class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors">Comparison</a><a href="#" data-path="shot-prediction" class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors">Prediction</a><a href="#" data-path="methodology" class="text-[13px] py-3 px-4 text-[#6B7280] hover:text-white transition-colors">Methodology</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2023/24 Reg. Season</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container rounded text-on-surface-variant"><span class="material-symbols-outlined text-label-md text-primary-container">bolt</span><span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface">Streamlit Live</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-[52px] w-full bg-surface min-h-screen px-margin py-margin"><div class="flex flex-col w-full gap-space-lg">
+<!-- Sub-header context strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-container-low px-space-lg py-space-sm rounded shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-primary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide uppercase text-on-surface">Spatial Shot Telemetry</span>
+</div>
+<span class="text-surface-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sample: All NBA 2023-24 Regular Season • 218,701 Field Goal Events</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Tracking Sensor API: High-Res Opta/SecondSpectrum</span>
+</div>
+<button class="flex items-center gap-1 bg-surface-container hover:bg-surface-container-highest text-on-surface px-space-sm py-1 rounded transition-colors text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+        Export CSV
+      </button>
+</div>
+</div>
+<!-- Primary 2-Column Responsive Workspace: 55% Left / 45% Right -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- ========================================== -->
+<!-- LEFT COLUMN (55% -> 7 Cols in 12-col grid) -->
+<!-- ========================================== -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-low rounded p-space-lg flex flex-col gap-space-md shadow-md">
+<!-- Header -->
+<div class="flex flex-wrap items-start justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Spatial Shot Distribution</h2>
+<span class="bg-surface-container px-2 py-0.5 rounded font-label-sm text-label-sm text-secondary font-medium">Full League (All Teams)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Court coordinates in feet, basket positioned at origin (0,0)</p>
+</div>
+<!-- Quick toggles -->
+<div class="flex items-center bg-surface-container-lowest p-0.5 rounded gap-0.5">
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded bg-surface-container-high text-on-surface font-semibold shadow-sm">Scatter View</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded text-on-surface-variant hover:text-on-surface transition-colors">Heat Density</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded text-on-surface-variant hover:text-on-surface transition-colors">Hex Binning</button>
+</div>
+</div>
+<!-- Half-Court Visualizer Frame -->
+<div class="relative w-full aspect-[50/47] bg-[#070d18] rounded overflow-hidden flex items-center justify-center p-2 select-none">
+<!-- Ambient Court Radial Vignette -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(255,107,53,0.06)_0%,rgba(0,209,167,0.03)_40%,transparent_75%)] pointer-events-none"></div>
+<!-- Master Vector SVG for Court Graphics & Shot Markers -->
+<svg class="w-full h-full max-h-[640px] drop-shadow-sm font-label-sm" viewBox="-250 -47.5 500 470">
+<defs>
+<!-- Glowing Filters -->
+<filter height="200%" id="neon-glow" width="200%" x="-50%" y="-50%">
+<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="2.2"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+<radialGradient cx="0" cy="95" gradientUnits="userSpaceOnUse" id="paint-zone-gradient" r="100">
+<stop offset="0%" stop-color="#41eec2" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#41eec2" stop-opacity="0.01"></stop>
+</radialGradient>
+<radialGradient cx="0" cy="0" gradientUnits="userSpaceOnUse" id="rim-gradient" r="45">
+<stop offset="0%" stop-color="#ff6b35" stop-opacity="0.16"></stop>
+<stop offset="100%" stop-color="#ff6b35" stop-opacity="0.02"></stop>
+</radialGradient>
+</defs>
+<!-- COURT ZONES (Subtle Analytical Overlays) -->
+<!-- Restricted Area Fill -->
+<path d="M -40 0 L -40 40 A 40 40 0 0 0 40 40 L 40 0 Z" fill="url(#rim-gradient)"></path>
+<!-- In The Paint Fill -->
+<rect fill="url(#paint-zone-gradient)" height="190" width="160" x="-80" y="0"></rect>
+<!-- COURT LINES (Precision vectoring #D2D8E2 at 28% opacity) -->
+<g fill="none" stroke="#d2d8e2" stroke-opacity="0.28" stroke-width="1.6">
+<!-- Baseline & Perimeter Boundary -->
+<rect height="470" width="500" x="-250" y="-47.5"></rect>
+<!-- Backboard (6ft wide, 4ft from baseline) -->
+<line stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.5" x1="-30" x2="30" y1="-7.5" y2="-7.5"></line>
+<!-- Hoop Rim (radius 7.5 inches = 0.75ft; 18 inch diameter centered at 0,0) -->
+<circle cx="0" cy="0" r="7.5" stroke="#ff6b35" stroke-opacity="0.8" stroke-width="2"></circle>
+<!-- Rim connector -->
+<line stroke="#ff6b35" stroke-width="2" x1="0" x2="0" y1="-7.5" y2="-7.5"></line>
+<!-- Restricted Area (4ft radius arc centered at 0,0) -->
+<path d="M -40 -7.5 L -40 0 A 40 40 0 0 0 40 0 L 40 -7.5"></path>
+<!-- Key / Painted Area (16ft wide = 160 units, 19ft deep = 190 units from baseline) -->
+<rect height="190" width="160" x="-80" y="-47.5"></rect>
+<!-- Inner Key lane boundaries (12ft wide college/alternate) -->
+<rect height="190" stroke-dasharray="3,4" stroke-opacity="0.2" width="120" x="-60" y="-47.5"></rect>
+<!-- Free Throw Circle (6ft radius = 60 units at y = 142.5) -->
+<circle cx="0" cy="142.5" r="60"></circle>
+<path d="M -60 142.5 A 60 60 0 0 0 60 142.5" stroke-dasharray="4,4"></path>
+<!-- Corner 3 Sidelines (22ft from basket center = 220 units; 14ft long from baseline) -->
+<line x1="-220" x2="-220" y1="-47.5" y2="92.5"></line>
+<line x1="220" x2="220" y1="-47.5" y2="92.5"></line>
+<!-- 3-Point Arc (23.75ft radius = 237.5 units centered at basket origin 0,0) -->
+<path d="M -220 92.5 A 237.5 237.5 0 0 0 220 92.5"></path>
+<!-- Center Court Arc & Outer Circle -->
+<circle cx="0" cy="422.5" r="60" stroke-opacity="0.3"></circle>
+<circle cx="0" cy="422.5" r="20" stroke-opacity="0.3"></circle>
+</g>
+<!-- SHOT CLOUD SIMULATION (Cluster densities representing 218K regular season shots) -->
+<!-- 1. RESTRICTED AREA HIGH-DENSITY CLUSTER -->
+<!-- Missed shots (cross markers) -->
+<g opacity="0.65" stroke="#7b899e" stroke-width="1.3">
+<path d="M-8,12 L-4,16 M-4,12 L-8,16"></path>
+<path d="M12,22 L16,26 M16,22 L12,26"></path>
+<path d="M-18,28 L-14,32 M-14,28 L-18,32"></path>
+<path d="M6,10 L10,14 M10,10 L6,14"></path>
+<path d="M-28,18 L-24,22 M-24,18 L-28,22"></path>
+<path d="M22,34 L26,38 M26,34 L22,38"></path>
+<path d="M-34,36 L-30,40 M-30,36 L-34,40"></path>
+<path d="M-2,32 L2,36 M2,32 L-2,36"></path>
+<path d="M16,-4 L20,0 M20,-4 L16,0"></path>
+<path d="M-14,-2 L-10,2 M-10,-2 L-14,2"></path>
+</g>
+<!-- Made shots (Glowing neon teal dots #00D4AA / secondary-fixed) -->
+<g fill="#00d1a7" filter="url(#neon-glow)" opacity="0.85">
+<circle cx="0" cy="8" r="2.8"></circle>
+<circle cx="-12" cy="14" r="2.8"></circle>
+<circle cx="10" cy="12" r="2.8"></circle>
+<circle cx="-6" cy="22" r="2.8"></circle>
+<circle cx="14" cy="18" r="2.8"></circle>
+<circle cx="-18" cy="10" r="2.8"></circle>
+<circle cx="20" cy="8" r="2.8"></circle>
+<circle cx="-4" cy="30" r="2.8"></circle>
+<circle cx="8" cy="28" r="2.8"></circle>
+<circle cx="2" cy="18" r="2.8"></circle>
+<circle cx="-22" cy="25" r="2.8"></circle>
+<circle cx="24" cy="22" r="2.8"></circle>
+<circle cx="-10" cy="34" r="2.8"></circle>
+<circle cx="16" cy="32" r="2.8"></circle>
+<circle cx="0" cy="24" r="2.8"></circle>
+</g>
+<!-- 2. IN THE PAINT (FLOATER & POST REGION) -->
+<g opacity="0.6" stroke="#7b899e" stroke-width="1.3">
+<path d="M-42,65 L-38,69 M-38,65 L-42,69"></path>
+<path d="M38,72 L42,76 M42,72 L38,76"></path>
+<path d="M-20,95 L-16,99 M-16,95 L-20,99"></path>
+<path d="M22,88 L26,92 M26,88 L22,92"></path>
+<path d="M-55,120 L-51,124 M-51,120 L-55,124"></path>
+<path d="M50,115 L54,119 M54,115 L50,119"></path>
+<path d="M-10,135 L-6,139 M-6,135 L-10,139"></path>
+<path d="M12,140 L16,144 M16,140 L12,144"></path>
+<path d="M-30,110 L-26,114 M-26,110 L-30,114"></path>
+</g>
+<g fill="#00d1a7" opacity="0.8">
+<circle cx="-35" cy="80" r="2.6"></circle>
+<circle cx="32" cy="84" r="2.6"></circle>
+<circle cx="0" cy="110" r="2.6"></circle>
+<circle cx="-18" cy="75" r="2.6"></circle>
+<circle cx="20" cy="105" r="2.6"></circle>
+<circle cx="-40" cy="130" r="2.6"></circle>
+<circle cx="42" cy="125" r="2.6"></circle>
+</g>
+<!-- 3. MID-RANGE WING & ELBOW (Lower frequency, higher missed ratio) -->
+<g opacity="0.65" stroke="#7b899e" stroke-width="1.3">
+<path d="M-110,85 L-106,89 M-106,85 L-110,89"></path>
+<path d="M112,90 L116,94 M116,90 L112,94"></path>
+<path d="M-140,140 L-136,144 M-136,140 L-140,144"></path>
+<path d="M135,135 L139,139 M139,135 L135,139"></path>
+<path d="M-90,165 L-86,169 M-86,165 L-90,169"></path>
+<path d="M88,160 L92,164 M92,160 L88,164"></path>
+<path d="M-125,185 L-121,189 M-121,185 L-125,189"></path>
+<path d="M120,180 L124,184 M124,180 L120,184"></path>
+<path d="M-60,175 L-56,179 M-56,175 L-60,179"></path>
+<path d="M60,175 L64,179 M64,175 L60,179"></path>
+</g>
+<g fill="#00d1a7" opacity="0.8">
+<circle cx="-120" cy="115" r="2.6"></circle>
+<circle cx="118" cy="118" r="2.6"></circle>
+<circle cx="-105" cy="155" r="2.6"></circle>
+<circle cx="102" cy="152" r="2.6"></circle>
+<circle cx="-75" cy="190" r="2.6"></circle>
+<circle cx="78" cy="192" r="2.6"></circle>
+</g>
+<!-- 4. LEFT CORNER 3 & RIGHT CORNER 3 -->
+<!-- Left Corner (x ~ -230) -->
+<g opacity="0.6" stroke="#7b899e" stroke-width="1.3">
+<path d="M-234,10 L-230,14 M-230,10 L-234,14"></path>
+<path d="M-226,35 L-222,39 M-222,35 L-226,39"></path>
+<path d="M-238,60 L-234,64 M-234,60 L-238,64"></path>
+<path d="M-230,80 L-226,84 M-226,80 L-230,84"></path>
+</g>
+<g fill="#00d1a7" filter="url(#neon-glow)" opacity="0.9">
+<circle cx="-232" cy="22" r="2.8"></circle>
+<circle cx="-228" cy="48" r="2.8"></circle>
+<circle cx="-235" cy="72" r="2.8"></circle>
+</g>
+<!-- Right Corner (x ~ 230) -->
+<g opacity="0.6" stroke="#7b899e" stroke-width="1.3">
+<path d="M228,15 L232,19 M232,15 L228,19"></path>
+<path d="M234,40 L238,44 M238,40 L234,44"></path>
+<path d="M225,65 L229,69 M229,65 L225,69"></path>
+<path d="M232,82 L236,86 M236,82 L232,86"></path>
+</g>
+<g fill="#00d1a7" filter="url(#neon-glow)" opacity="0.9">
+<circle cx="230" cy="28" r="2.8"></circle>
+<circle cx="236" cy="52" r="2.8"></circle>
+<circle cx="228" cy="74" r="2.8"></circle>
+</g>
+<!-- 5. ABOVE THE BREAK 3 (HIGH VOLUME PERIMETER) -->
+<g opacity="0.6" stroke="#7b899e" stroke-width="1.3">
+<path d="M-180,185 L-176,189 M-176,185 L-180,189"></path>
+<path d="M182,188 L186,192 M186,188 L182,192"></path>
+<path d="M-195,215 L-191,219 M-191,215 L-195,219"></path>
+<path d="M198,212 L202,216 M202,212 L198,216"></path>
+<path d="M-140,240 L-136,244 M-136,240 L-140,244"></path>
+<path d="M142,238 L146,242 M146,238 L142,242"></path>
+<path d="M-90,265 L-86,269 M-86,265 L-90,269"></path>
+<path d="M94,260 L98,264 M98,260 L94,264"></path>
+<path d="M-40,278 L-36,282 M-36,278 L-40,282"></path>
+<path d="M42,276 L46,280 M46,276 L42,280"></path>
+<path d="M-10,282 L-6,286 M-6,282 L-10,286"></path>
+<!-- Deep Threes / Logo Shots -->
+<path d="M-80,330 L-76,334 M-76,330 L-80,334"></path>
+<path d="M75,340 L79,344 M79,340 L75,344"></path>
+<path d="M-10,360 L-6,364 M-6,360 L-10,364"></path>
+</g>
+<g fill="#00d1a7" filter="url(#neon-glow)" opacity="0.85">
+<circle cx="-165" cy="205" r="2.8"></circle>
+<circle cx="168" cy="208" r="2.8"></circle>
+<circle cx="-120" cy="252" r="2.8"></circle>
+<circle cx="125" cy="248" r="2.8"></circle>
+<circle cx="-65" cy="272" r="2.8"></circle>
+<circle cx="70" cy="270" r="2.8"></circle>
+<circle cx="-25" cy="285" r="2.8"></circle>
+<circle cx="28" cy="283" r="2.8"></circle>
+<circle cx="0" cy="288" r="2.8"></circle>
+<circle cx="15" cy="325" r="2.8"></circle>
+</g>
+<!-- TARGETED SHOT WITH INTERACTIVE PINNED HOVER TOOLTIP -->
+<!-- Trae Young Deep 3 Shot Marker at (x: 45, y: 284) -> dist = 28.4 ft -->
+<g class="cursor-pointer group">
+<!-- Animated Beacon Pulse -->
+<circle class="animate-ping" cx="45" cy="284" fill="#41eec2" fill-opacity="0.3" r="8" style="transform-origin: 45px 284px;"></circle>
+<circle cx="45" cy="284" fill="#55fcd0" filter="url(#neon-glow)" r="4.5" stroke="#070e1d" stroke-width="1.5"></circle>
+<!-- Indicator connector line -->
+<line stroke="#ffb59d" stroke-dasharray="2,2" stroke-width="1.2" x1="45" x2="65" y1="284" y2="248"></line>
+<!-- Pinned Tooltip Overlay Object -->
+<foreignObject height="95" width="220" x="70" y="210">
+<div class="bg-surface-container-highest/95 backdrop-blur-md p-space-sm rounded shadow-xl border-l-2 border-primary-container text-on-surface flex flex-col gap-1 pointer-events-auto">
+<div class="flex items-center justify-between gap-1">
+<span class="font-headline-sm text-[12px] font-semibold text-primary tracking-tight">Trae Young</span>
+<span class="bg-secondary-container/20 text-secondary text-[9px] font-label-sm px-1.5 py-0.2 rounded font-bold uppercase">MADE (+3)</span>
+</div>
+<div class="font-label-sm text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="">Above the Break 3</span>
+<span class="">•</span>
+<span class="text-on-surface font-semibold">28.4 ft</span>
+</div>
+<div class="font-label-sm text-[10px] text-on-surface-variant flex items-center justify-between pt-0.5">
+<span class="">x: 4.5ft | y: 28.4ft</span>
+<span class="text-secondary font-medium">Shot Quality: 54.2%</span>
+</div>
+</div>
+</foreignObject>
+</g>
+<!-- Dimension Grid Foot Markers (Faint Technical Annotations) -->
+<text fill="#7b899e" font-size="8" opacity="0.6" text-anchor="end" x="210" y="-12">22.0 ft</text>
+<text fill="#7b899e" font-size="8" opacity="0.6" text-anchor="middle" x="0" y="148">15.0 ft (FT)</text>
+<text fill="#7b899e" font-size="8" opacity="0.6" text-anchor="middle" x="0" y="244">23.75 ft (3PT)</text>
+</svg>
+<!-- Hot Zone Watermark Tag inside court -->
+<div class="absolute bottom-3 left-4 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur px-2.5 py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Spatial Mapping Engine • Opta TrueOrigin</span>
+</div>
+</div>
+<!-- Legend and Meta Footer -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<!-- Legend Items -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(0,209,167,0.5)]"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Made <span class="font-label-sm text-secondary font-semibold">(● 47.4%)</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-bold text-outline">✕</span>
+<span class="font-body-sm text-body-sm text-on-surface">Missed <span class="font-label-sm text-on-surface-variant font-semibold">(✕ 52.6%)</span></span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total mapped:</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">218,701 shots</span>
+</div>
+</div>
+<!-- Micro controls -->
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-on-surface transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-on-surface transition-colors" title="Reset Origin">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-on-surface transition-colors" title="Snapshot View">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+</div>
+<!-- Italic caption -->
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-relaxed pt-1">
+          Coordinates in feet, basket at (0,0). Beyond-half-court attempts (&gt;47 ft) remain incorporated in metric calibration tables.
+        </p>
+</div>
+<!-- Quick Shot Quality Insight Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded flex flex-col gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Corner / Rim Ratio</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-display text-metric-display text-on-surface">33.7%</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">+1.4% yoy</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">High-efficiency shot diet share</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded flex flex-col gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mid-Range Decay</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-display text-metric-display text-primary">11.1%</span>
+<span class="font-label-sm text-label-sm text-error font-medium">-2.8% vs '20</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Historical volume compression</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded flex flex-col gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Deep 3PT Volume (&gt;27ft)</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-display text-metric-display text-secondary">18,490</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">34.4% eFG</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Spacing stretch attempts</span>
+</div>
+</div>
+</div>
+<!-- =========================================== -->
+<!-- RIGHT COLUMN (45% -> 5 Cols in 12-col grid) -->
+<!-- =========================================== -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- 1. Top Callout Card: Best Value Zone -->
+<div class="bg-[#1c1917] p-space-lg rounded shadow-md border-l-[3px] border-primary-container relative overflow-hidden flex flex-col gap-space-xs">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider flex items-center gap-1.5">
+<span class="text-[16px]">🏆</span> Optimal Shot Value Zone
+          </span>
+<span class="bg-primary-container/20 text-primary-fixed text-label-sm font-label-sm px-2 py-0.5 rounded font-medium">eFG 58.1%</span>
+</div>
+<div class="flex flex-wrap items-baseline gap-x-space-md gap-y-1 mt-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">Left Corner 3</span>
+<span class="font-metric-display text-[22px] leading-tight text-primary-container">1.18 <span class="font-body-sm text-body-sm text-on-surface-variant">pts / attempt</span></span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="">Sample: <strong class="text-on-surface font-label-sm">n = 12,410 attempts</strong></span>
+<span class="text-secondary font-label-sm">+0.14 vs League Mid-Range</span>
+</div>
+</div>
+<!-- 2. Grouped Bar Chart: FG% by Zone (Selected vs League) -->
+<div class="bg-surface-container-low p-space-lg rounded shadow-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">FG% Efficiency by Court Zone</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Selected filter split vs 2023/24 League Benchmark</p>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-space-md bg-surface-container px-space-sm py-1 rounded">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Selected</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">League Benchmark</span>
+</div>
+</div>
+</div>
+<!-- Grouped Bar Chart Visual (Zones: RA, Paint, Mid, LC3, RC3, AB3, Backcourt) -->
+<div class="flex flex-col gap-space-sm pt-1">
+<!-- Restricted Area -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Restricted Area (&lt;4ft)</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">66.2%</span>
+<span class="text-secondary">64.8%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 66.2%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 64.8%"></div>
+</div>
+</div>
+</div>
+<!-- In The Paint (Non-RA) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">In The Paint (Non-RA)</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">44.1%</span>
+<span class="text-secondary">43.5%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 44.1%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 43.5%"></div>
+</div>
+</div>
+</div>
+<!-- Mid-Range -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Mid-Range (Key to 3PT)</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">41.8%</span>
+<span class="text-secondary">41.5%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 41.8%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 41.5%"></div>
+</div>
+</div>
+</div>
+<!-- Left Corner 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Left Corner 3</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">38.7%</span>
+<span class="text-secondary">38.2%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 38.7%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 38.2%"></div>
+</div>
+</div>
+</div>
+<!-- Right Corner 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Right Corner 3</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">39.2%</span>
+<span class="text-secondary">38.5%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 39.2%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 38.5%"></div>
+</div>
+</div>
+</div>
+<!-- Above the Break 3 -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Above The Break 3</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">36.1%</span>
+<span class="text-secondary">35.8%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 36.1%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 35.8%"></div>
+</div>
+</div>
+</div>
+<!-- Backcourt Heaves -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-baseline font-body-sm text-body-sm">
+<span class="text-on-surface font-medium">Backcourt / Heaves (&gt;47ft)</span>
+<div class="flex gap-3 font-label-sm text-label-sm">
+<span class="text-primary font-semibold">2.1%</span>
+<span class="text-secondary">1.8%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 2.1%"></div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden flex">
+<div class="bg-secondary-container/70 h-full rounded-full transition-all duration-500" style="width: 1.8%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Attempts Volume Bar Chart (Horizontal Gradient Bars) -->
+<div class="bg-surface-container-low p-space-lg rounded shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Attempts Volume Distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Shot volume frequency (n=218,701 total)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">bar_chart</span>
+</div>
+<div class="flex flex-col gap-2 pt-2 font-label-md text-label-md">
+<!-- Above Break 3: 63,770 (Max = ~65,000 for 100% bar scale) -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">Above Break 3</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 98%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">63.8k</span>
+</div>
+<!-- Restricted Area: 61,200 -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">Restricted Area</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 94%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">61.2k</span>
+</div>
+<!-- In Paint: 42,100 -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">In Paint (Non-RA)</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 65%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">42.1k</span>
+</div>
+<!-- Mid-Range: 24,300 -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">Mid-Range</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 37%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">24.3k</span>
+</div>
+<!-- Left Corner: 12,410 -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">Left Corner 3</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 19%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">12.4k</span>
+</div>
+<!-- Right Corner: 11,800 -->
+<div class="grid grid-cols-12 items-center gap-2">
+<span class="col-span-4 text-body-sm font-body-sm text-on-surface truncate">Right Corner 3</span>
+<div class="col-span-6 bg-surface-container h-3 rounded overflow-hidden flex">
+<div class="h-full bg-gradient-to-r from-primary via-primary-container to-secondary rounded" style="width: 18%;"></div>
+</div>
+<span class="col-span-2 text-right text-on-surface font-semibold">11.8k</span>
+</div>
+</div>
+</div>
+<!-- 4. Zone Data Table (With Wilson 95% CI Pills) -->
+<div class="bg-surface-container-low rounded shadow-md overflow-hidden flex flex-col">
+<div class="p-space-md flex items-center justify-between bg-surface-container">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Zone Calibration Matrix</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Statistical significance with Wilson 95% Confidence Bounds</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded font-mono">p &lt; 0.001</span>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Zone</th>
+<th class="py-2.5 px-3 text-right">Attempts</th>
+<th class="py-2.5 px-3 text-right">FG%</th>
+<th class="py-2.5 px-3 text-center">Wilson 95% CI</th>
+<th class="py-2.5 px-3 text-right">Pts / Att</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent font-label-md text-label-md">
+<!-- Row 1: Restricted Area (Odd: #111827) -->
+<tr class="bg-[#111827] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  Restricted Area
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">61,200</td>
+<td class="py-2.5 px-3 text-right text-secondary font-bold">66.2%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [65.8% — 66.6%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-bold">1.32</td>
+</tr>
+<!-- Row 2: In The Paint (Even: #161D2E) -->
+<tr class="bg-[#161D2E] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>
+                  In The Paint
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">42,100</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-semibold">44.1%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [43.6% — 44.6%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-semibold">0.88</td>
+</tr>
+<!-- Row 3: Mid-Range (Odd: #111827) -->
+<tr class="bg-[#111827] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                  Mid-Range
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">24,300</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-semibold">41.8%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [41.2% — 42.4%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-error font-semibold">0.84</td>
+</tr>
+<!-- Row 4: Left Corner 3 (Even: #161D2E) -->
+<tr class="bg-[#161D2E] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                  Left Corner 3
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">12,410</td>
+<td class="py-2.5 px-3 text-right text-primary font-bold">38.7%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-primary-container/20 text-primary-fixed px-2 py-0.5 rounded text-[11px] font-mono tracking-tighter font-semibold">
+                      [37.8% — 39.5%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-primary font-bold">1.18</td>
+</tr>
+<!-- Row 5: Right Corner 3 (Odd: #111827) -->
+<tr class="bg-[#111827] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                  Right Corner 3
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">11,800</td>
+<td class="py-2.5 px-3 text-right text-primary font-bold">39.2%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [38.3% — 40.1%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-primary font-bold">1.18</td>
+</tr>
+<!-- Row 6: Above Break 3 (Even: #161D2E) -->
+<tr class="bg-[#161D2E] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  Above Break 3
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">63,770</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-semibold">36.1%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [35.7% — 36.5%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-on-surface font-semibold">1.08</td>
+</tr>
+<!-- Row 7: Backcourt (Odd: #111827) -->
+<tr class="bg-[#111827] hover:bg-surface-container-highest transition-colors">
+<td class="py-2.5 px-3 text-on-surface font-body-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+                  Backcourt Heave
+                </td>
+<td class="py-2.5 px-3 text-right text-on-surface font-medium">3,121</td>
+<td class="py-2.5 px-3 text-right text-error font-semibold">2.1%</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center justify-center">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono text-on-surface tracking-tighter">
+                      [1.6% — 2.6%]
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right text-error font-semibold">0.06</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-sm bg-surface-container flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">*Wilson continuity correction formula applied.</span>
+<a class="text-primary hover:underline font-label-sm text-label-sm" href="#">Inspect Methodology →</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Lightweight interactive state for court hover & filters
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeButtons = document.querySelectorAll('button');
+      modeButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          if (this.innerText.includes('Scatter') || this.innerText.includes('Density') || this.innerText.includes('Hex')) {
+            modeButtons.forEach(b => {
+              if (b.innerText.includes('Scatter') || b.innerText.includes('Density') || b.innerText.includes('Hex')) {
+                b.className = 'px-2.5 py-1 text-label-sm font-label-sm rounded text-on-surface-variant hover:text-on-surface transition-colors';
+              }
+            });
+            this.className = 'px-2.5 py-1 text-label-sm font-label-sm rounded bg-surface-container-high text-on-surface font-semibold shadow-sm';
+          }
+        });
+      });
+    });
+  </script>
+</div></main></div>
+
+</body></html>
