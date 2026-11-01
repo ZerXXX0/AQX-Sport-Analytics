@@ -1,48 +1,9 @@
-from pathlib import Path
 import json
-import tarfile
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
-
-def read_archive(path):
-    with tarfile.open(path, 'r:xz') as archive:
-        member = next(m for m in archive if m.name.endswith('.csv'))
-        return pd.read_csv(archive.extractfile(member), dtype={'GAME_ID': str})
-
-def clutch(period, seconds, margin, limit=300, gap=5):
-    return (period >= 4) & (seconds <= limit) & (margin.abs() <= gap) & margin.notna()
-
-def prepare(source, season=2023):
-    shots = read_archive(source / f'shotdetail_{season}.tar.xz')
-    pbp = read_archive(source / f'nbastats_{season}.tar.xz')
-    raw_count = len(shots)
-    shots = shots.drop_duplicates(['GAME_ID', 'GAME_EVENT_ID'])
-    shots = shots[shots.SHOT_MADE_FLAG.isin([0, 1]) & shots.SHOT_TYPE.isin(['2PT Field Goal', '3PT Field Goal']) & (shots.SHOT_ATTEMPTED_FLAG == 1)].copy()
-    # Remove exact duplicates; ambiguous event IDs cannot safely supply context.
-    pbp = pbp.drop_duplicates()
-    ambiguous = pbp.duplicated(['GAME_ID', 'EVENTNUM'], keep=False)
-    bad_keys = pbp.loc[ambiguous, ['GAME_ID', 'EVENTNUM']].drop_duplicates()
-    pbp = pbp.sort_values(['GAME_ID', 'EVENTNUM'], kind='stable')
-    parsed = pbp.SCORE.astype('string').str.extract(r'^(\d+)\s*-\s*(\d+)$').astype(float)
-    # SCORE is away-home. Forward-fill within each game; shift to obtain pre-event score.
-    for col, idx in [('away', 0), ('home', 1)]:
-        after = parsed[idx].groupby(pbp.GAME_ID).ffill().fillna(0)
-        pbp[col + '_before'] = after.groupby(pbp.GAME_ID).shift().fillna(0)
-    pbp['score_margin_before'] = pbp.home_before - pbp.away_before
-    context = pbp.loc[~pbp.duplicated(['GAME_ID', 'EVENTNUM'], keep=False), ['GAME_ID', 'EVENTNUM', 'score_margin_before']]
-    shots = shots.merge(context, left_on=['GAME_ID', 'GAME_EVENT_ID'], right_on=['GAME_ID', 'EVENTNUM'], how='left', validate='one_to_one')
-    shots['seconds_remaining'] = shots.MINUTES_REMAINING * 60 + shots.SECONDS_REMAINING
-    shots['is_clutch'] = clutch(shots.PERIOD, shots.seconds_remaining, shots.score_margin_before)
-    shots['shot_value'] = np.where(shots.SHOT_TYPE.str.startswith('3'), 3, 2)
-    shots['points'] = shots.shot_value * shots.SHOT_MADE_FLAG
-    shots['GAME_DATE'] = pd.to_datetime(shots.GAME_DATE.astype(str), format='%Y%m%d')
-    shots['x_ft'] = shots.LOC_X / 10
-    shots['y_ft'] = shots.LOC_Y / 10
-    shots['season'] = f'{season}/{str(season+1)[-2:]}'
-    report = {'source': 'https://github.com/shufinskiy/nba_data', 'season': f'{season}/{season+1}', 'raw_shots': raw_count, 'eligible_shots': len(shots), 'games': shots.GAME_ID.nunique(), 'missing_score_context': int(shots.score_margin_before.isna().sum()), 'ambiguous_pbp_keys': len(bad_keys), 'date_min': str(shots.GAME_DATE.min()), 'date_max': str(shots.GAME_DATE.max()), 'clutch_attempts': int(shots.is_clutch.sum())}
-    return shots, report
+# Compatibility exports for the existing app and model.
+from etl import ROOT, clutch, prepare, read_archive
 
 def metrics(df):
     n = len(df)

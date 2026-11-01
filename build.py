@@ -1,16 +1,13 @@
 import argparse
 import json
-from pathlib import Path
-from core import ROOT, prepare, train
+from core import train
+from etl import prepare, write_outputs
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
-    p.add_argument('--source', type=Path, default=ROOT/'data'/'raw')
-    p.add_argument('--season', type=int, default=2023)
+    p.add_argument('--season', type=int, choices=[2023], default=2023)
     args = p.parse_args()
-    df, manifest = prepare(args.source,args.season)
-    (ROOT/'data').mkdir(exist_ok=True)
-    df.to_parquet(ROOT/'data/shots.parquet',index=False)
-    (ROOT/'data/manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+    df, manifest = prepare(season=args.season)
+    manifest = write_outputs(df, manifest)
     print(json.dumps(manifest,indent=2))
     print(json.dumps(train(df),indent=2))
