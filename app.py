@@ -5,6 +5,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 from core import ROOT, FEATURES, metrics, zones, clutch
+from shot_geometry import shot_value_at
 from charts import render_shot_explorer
 
 # ── Page config ──────────────────────────────────────────────────────────────
@@ -1055,11 +1056,13 @@ with tabs[4]:
           <p class="iq-card-sub">Adjust parameters and run inference against the trained model</p>
         </div>
         """)
+        x_val = st.slider('Width from basket — X coordinate (ft)', -24.5, 24.5, 0.0, 0.5)
+        y_val = st.slider('Length from basket — Y coordinate (ft)', -5.0, 41.5, 15.0, 0.5)
+        value = shot_value_at(x_val, y_val)
+        st.caption(f'Shot value: {value} points — automatically determined from court location. '
+                   'On the three-point line counts as 2 points.')
+        period_pred = st.selectbox('Period', [1, 2, 3, 4, 5, 6])
         with st.form('predict_form'):
-            x_val  = st.slider('Width from basket — X coordinate (ft)', -25.0, 25.0, 0.0, 0.5)
-            y_val  = st.slider('Length from basket — Y coordinate (ft)', -5.0, 42.0, 15.0, 0.5)
-            value  = st.selectbox('Shot value', [2, 3])
-            period_pred = st.selectbox('Period', [1, 2, 3, 4, 5, 6])
             max_sec = 300 if period_pred >= 5 else 720
             sec    = st.slider('Seconds remaining in period', 0, max_sec, min(120, max_sec))
             gap    = st.slider('Home minus away score before shot', -40, 40, 0)
@@ -1102,7 +1105,7 @@ with tabs[4]:
             st.caption('Estimate excludes free throws and subsequent possessions.')
 
             # Insight
-            zone_label = 'Restricted Area' if dist < 8 else ('Mid-Range' if dist < 22 else '3PT Zone')
+            zone_label = '3PT area' if value == 3 else 'Inside/on the three-point line'
             st.html(f"""
             <div class="iq-insight">
               📍 <b>Dist:</b> {dist:.1f} ft · <b>Zone:</b> {zone_label} ·
