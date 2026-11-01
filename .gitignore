@@ -1,4 +1,8 @@
-data/
+data/*
+!data/raw/
+data/raw/*
+!data/raw/shotdetail_2023.tar.xz
+!data/raw/nbastats_2023.tar.xz
 artifacts/*.joblib
 __pycache__/
 .pytest_cache/

@@ -5,7 +5,7 @@ from core import ROOT, prepare, train
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
-    p.add_argument('--source', type=Path, default=ROOT.parent/'nba_data-main'/'datasets')
+    p.add_argument('--source', type=Path, default=ROOT/'data'/'raw')
     p.add_argument('--season', type=int, default=2023)
     args = p.parse_args()
     df, manifest = prepare(args.source,args.season)

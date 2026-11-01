@@ -8,14 +8,14 @@ Python 3.11+ recommended. From this directory:
 
 ```powershell
 python -m pip install -r requirements.txt
-python build.py --source "../nba_data-main/datasets" --season 2023
+python build.py --season 2023
 python -m pytest -q
 python -m streamlit run app.py
 ```
 
 For this workspace, dependencies are also installed in the sibling `python_packages` directory. Set `$env:PYTHONPATH = '../python_packages'` before the commands, or launch using `powershell -ExecutionPolicy Bypass -File run.ps1`.
 
-Download `shotdetail_2023.tar.xz` and `nbastats_2023.tar.xz` from https://github.com/shufinskiy/nba_data/tree/main/datasets. Place both in the source directory. The pipeline reads archive members without extracting arbitrary paths. No NBA API key or environment secrets are required.
+The repository includes `shotdetail_2023.tar.xz` and `nbastats_2023.tar.xz` in `data/raw/`, sourced from https://github.com/shufinskiy/nba_data/tree/main/datasets. This is the default source; use `--source "path/to/archives"` to override it. Only these two raw archives are included in Git; processed data remains ignored. The pipeline reads archive members without extracting arbitrary paths. No NBA API key or environment secrets are required.
 
 ## Architecture
 
@@ -41,6 +41,6 @@ No defender tracking or shot clock is available in the inspected schemas. Estima
 
 ## Source and publication
 
-Data compilation: shufinskiy/nba_data, from NBA and other sources described by its maintainer. The upstream repository includes Apache-2.0; this does not independently establish all rights to third-party data. Credit both maintainer and original sources. Raw/processed data and model binaries are ignored by Git; regenerate them using the documented command. Deployment must run the build pipeline before launching the app or provision the generated artifacts separately. Public deployment and Devpost submission remain owner actions.
+Data compilation: shufinskiy/nba_data, from NBA and other sources described by its maintainer. The upstream repository includes Apache-2.0; this does not independently establish all rights to third-party data. Credit both maintainer and original sources. Two original raw archives are included in `data/raw/`; processed data and model binaries are ignored by Git and regenerated using the documented command. Deployment must run the build pipeline before launching the app or provision the generated artifacts separately. Public deployment and Devpost submission remain owner actions.
 
 Team contribution plan is in `docs/team-plan.md`. No commits are attributed to team members automatically.
