@@ -40,7 +40,62 @@ st.html("""
     color: var(--on-surf) !important;
     font-family: var(--font) !important;
   }
-  [data-testid="stHeader"], [data-testid="stDecoration"], footer { display:none!important; }
+  /* Streamlit layout & chrome */
+  [data-testid="stDecoration"], footer { display: none !important; }
+  [data-testid="stToolbarActions"], [data-testid="stMainMenu"] { display: none !important; }
+
+  /* Keep stHeader transparent so expand sidebar button is accessible */
+  [data-testid="stHeader"] {
+    background: transparent !important;
+    color: var(--on-surf) !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+  }
+  [data-testid="stHeader"] [data-testid="stToolbar"] {
+    background: transparent !important;
+    pointer-events: none !important;
+  }
+  /* Expand sidebar button when sidebar is collapsed */
+  [data-testid="stExpandSidebarButton"],
+  [data-testid="stSidebarCollapsedControl"],
+  button[aria-label="Expand sidebar"] {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    color: var(--on-surf) !important;
+    background: var(--surf-low) !important;
+    border: 1px solid var(--surf-high) !important;
+    border-radius: 6px !important;
+    margin: 8px 0 0 8px !important;
+    padding: 6px 10px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+  }
+  [data-testid="stExpandSidebarButton"]:hover,
+  [data-testid="stSidebarCollapsedControl"]:hover,
+  button[aria-label="Expand sidebar"]:hover {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background: var(--surf) !important;
+    transform: translateX(2px) !important;
+  }
+  [data-testid="stExpandSidebarButton"] svg,
+  [data-testid="stSidebarCollapsedControl"] svg,
+  button[aria-label="Expand sidebar"] svg {
+    fill: currentColor !important;
+  }
+  [data-testid="stSidebarCollapseButton"] button {
+    color: var(--on-surf) !important;
+    background: transparent !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+  }
+  [data-testid="stSidebarCollapseButton"] button:hover {
+    color: var(--primary) !important;
+    background: var(--surf-high) !important;
+  }
+
   [data-testid="stMainBlockContainer"] { padding-top: 1rem !important; }
 
   /* Sidebar */
@@ -129,13 +184,69 @@ st.html("""
   }
 
   /* Sliders */
-  [data-testid="stSlider"] [role="slider"] {
-    background: var(--primary)!important;
-    border: 2px solid var(--bg)!important;
-    box-shadow: 0 0 8px rgba(255,107,53,.4)!important;
+  [data-testid="stSlider"] {
+    --slider-focused: 1 !important;
+    padding-bottom: 14px !important;
   }
-  [data-testid="stSlider"] > div > div > div {
-    background: var(--surf-high)!important;
+  [data-testid="stSlider"] label {
+    margin-bottom: 6px !important;
+  }
+  [data-testid="stSlider"] label p {
+    font-family: var(--font) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--on-surf) !important;
+    letter-spacing: -0.01em !important;
+  }
+  /* Slider thumb */
+  [data-testid="stSlider"] [role="slider"] {
+    background: var(--primary) !important;
+    border: 2.5px solid #ffffff !important;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.7) !important;
+    width: 18px !important;
+    height: 18px !important;
+    cursor: grab !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  }
+  [data-testid="stSlider"] [role="slider"]:hover,
+  [data-testid="stSlider"] [role="slider"]:active {
+    transform: scale(1.18) !important;
+    box-shadow: 0 0 16px rgba(255, 107, 53, 0.95) !important;
+    cursor: grabbing !important;
+  }
+  /* Current value hovering above thumb */
+  [data-testid="stSliderThumbValue"] {
+    font-family: var(--mono) !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    color: var(--primary) !important;
+    background: var(--surf-high) !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 107, 53, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  }
+  /* Bottom tick labels (min/max numbers) - ALWAYS VISIBLE without hover */
+  [data-testid="stSliderTickBar"],
+  div[data-testid="stSliderTickBar"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 6px !important;
+    transition: none !important;
+  }
+  [data-testid="stSliderTickBar"] > div,
+  [data-testid="stSliderTickBar"] span,
+  [data-testid="stSliderTickBar"] p,
+  [data-testid="stSliderTickBar"] * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #cbd5e1 !important;
+    font-family: var(--mono) !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
   }
 
   /* Buttons */
@@ -676,7 +787,7 @@ with tabs[0]:
         annotation=dict(font=dict(color='#41eec2', size=10))
     )
     apply_theme(fig_trend, height=300)
-    st.plotly_chart(fig_trend, use_container_width=True)
+    st.plotly_chart(fig_trend, width='stretch')
     st.caption('Daily aggregate · changes reflect different opponents and samples.')
 
     # Legend row
@@ -708,7 +819,7 @@ with tabs[0]:
                          points=('points', 'sum'))
                     .assign(**{'FG%': lambda x: (100 * x.makes / x.attempts).round(1)})
                     .sort_values('attempts', ascending=False))
-    st.dataframe(player_tbl, use_container_width=True)
+    st.dataframe(player_tbl, width='stretch')
     st.html("</div>")
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -838,12 +949,12 @@ with tabs[2]:
     apply_theme(fig_c, height=280)
 
     st.html('<div class="iq-card"><p class="iq-card-header">FG% — Clutch vs Non-Clutch</p>')
-    st.plotly_chart(fig_c, use_container_width=True)
+    st.plotly_chart(fig_c, width='stretch')
     st.html('</div>')
 
     st.html('<div class="iq-card"><p class="iq-card-header">Clutch Zone Breakdown</p>')
     if len(clutch_df):
-        st.dataframe(zones(clutch_df), use_container_width=True)
+        st.dataframe(zones(clutch_df), width='stretch')
     else:
         st.info('No clutch attempts for the current filter selection.')
     st.html('</div>')
@@ -882,7 +993,7 @@ with tabs[3]:
         ).set_index('Player')
 
         st.html('<div class="iq-card"><p class="iq-card-header">Metrics Table</p>')
-        st.dataframe(comparison, use_container_width=True)
+        st.dataframe(comparison, width='stretch')
         st.html('</div>')
 
         if len(names) >= 2:
@@ -903,7 +1014,7 @@ with tabs[3]:
             )
             apply_theme(fig_comp, height=280)
             st.html('<div class="iq-card"><p class="iq-card-header">Efficiency Comparison</p>')
-            st.plotly_chart(fig_comp, use_container_width=True)
+            st.plotly_chart(fig_comp, width='stretch')
             st.html('</div>')
     else:
         st.html('<div class="iq-insight">Select at least one player above.</div>')
@@ -952,7 +1063,7 @@ with tabs[4]:
             max_sec = 300 if period_pred >= 5 else 720
             sec    = st.slider('Seconds remaining in period', 0, max_sec, min(120, max_sec))
             gap    = st.slider('Home minus away score before shot', -40, 40, 0)
-            submit = st.form_submit_button('⚡ Estimate Probability', use_container_width=True)
+            submit = st.form_submit_button('⚡ Estimate Probability', width='stretch')
 
     with res_col:
         if submit:
@@ -983,7 +1094,7 @@ with tabs[4]:
                 )
             ))
             apply_theme(fig_gauge, height=240)
-            st.plotly_chart(fig_gauge, use_container_width=True)
+            st.plotly_chart(fig_gauge, width='stretch')
 
             mc1, mc2 = st.columns(2)
             mc1.metric('Make Probability', f'{p:.1%}')
@@ -1057,7 +1168,7 @@ with tabs[4]:
             legend=dict(orientation='h', y=1.08)
         )
         apply_theme(fig_cal, height=280)
-        st.plotly_chart(fig_cal, use_container_width=True)
+        st.plotly_chart(fig_cal, width='stretch')
 
     st.html('<p class="iq-card-header" style="margin-top:20px;">Standardized Logistic Coefficients</p>')
     st.caption('Associations only — not causal effects.')
@@ -1066,7 +1177,7 @@ with tabs[4]:
         coef_df = pd.Series(coefs, name='Coefficient').to_frame()
         st.dataframe(
             coef_df.style.bar(color=['#ff6b35', '#41eec2'], align='zero'),
-            use_container_width=True
+            width='stretch'
         )
     st.html('</div>')
 
