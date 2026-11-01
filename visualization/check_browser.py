@@ -22,6 +22,12 @@ IFRAME = 'iframe[title="charts.clutchiq_shot_explorer"]'
 
 def start(page, url):
     page.goto(url, wait_until='domcontentloaded')
+    page.get_by_role('tab', name='Shot Explorer', exact=True).wait_for(state='attached', timeout=60000)
+    if page.viewport_size['width'] <= 760:
+        # The latest frontend explicitly expands the sidebar on first load.
+        close_sidebar = page.locator('[data-testid="stSidebarCollapseButton"] button')
+        if close_sidebar.is_visible():
+            close_sidebar.click()
     page.get_by_role('tab', name='Shot Explorer', exact=True).click(timeout=60000)
     frame = page.frame_locator(IFRAME)
     expect(frame.locator('#content')).to_be_visible(timeout=60000)
